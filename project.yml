@@ -16,7 +16,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.wireproof.dtdpro
         PRODUCT_NAME: Desktop TD
-        DEVELOPMENT_TEAM: 
+        DEVELOPMENT_TEAM: ''
         CODE_SIGN_STYLE: Automatic
         SWIFT_VERSION: '5.0'
         TARGETED_DEVICE_FAMILY: '1,2'
