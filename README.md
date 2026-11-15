@@ -1,12 +1,12 @@
 # Desktop TD
 
-Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop Tower Defense Pro** Flash game. It runs the original game and its graphics and sounds using a bundled Ruffle player in a local `WKWebView`. The app is not a native rewrite or an upscaled graphics remaster. This project preserves the recovered game for testing; it does not claim ownership of the original game or a license to redistribute it.
+Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop Tower Defense Pro** Flash game. It runs the original game and its graphics and sounds using a bundled Ruffle player in a local `WKWebView`. The app is not a native rewrite or an upscaled graphics remaster. This project preserves the recovered game for testing.
 
 ## iPhone build
 
 The current build is **0.4.2 (11)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. The red icon is the default; the settings menu offers the supplied purple alternative.
 
-The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The new settings-button position, purple icon, long sessions, and all combinations of towers and modes still require physical-device verification. iPad has not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
+The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.2 (11) is installed on the iPhone Duo and 11-inch iPad Pro; iPad gameplay, sizing and audio have not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
 
 ## Playing
 
@@ -30,6 +30,8 @@ Sandbox tower preload and the checkpoint are local replacements, not a recreatio
 ## Desktop builds
 
 The standalone desktop edition uses Electron with the same bundled Ruffle game. macOS packages are provided for Apple silicon and Intel; the Windows build is a portable x64 EXE. The window can be resized or switched to full screen (F11 on Windows, Control–Command–F on macOS). The **Game** menu provides Sandbox checkpoint save and load. Local desktop saves are separate from iPhone saves and from other computers.
+
+**Known macOS issue:** The Apple silicon build has been reported stuck on the Ruffle loading screen. A separate isolated startup test also stalled before the game loaded; its cause has not yet been established. Treat the macOS packages as experimental while this is investigated.
 
 The desktop programs serve bundled files on `127.0.0.1:58919` and keep game data in the operating system's per-user application-data directory. They do not require a Flash installation or the original game server. A second copy cannot start while the first holds the local port.
 
@@ -82,4 +84,4 @@ The script checks the original hash and applies the source and bytecode patches 
 - Investigate a native HTML5 reconstruction and graphics remaster only if desired; preserve original gameplay and sounds and compare against the recovered build.
 - Decide whether local replacements for additional account features, scores, or multiplayer are wanted and feasible.
 
-Ruffle is developed at <https://github.com/ruffle-rs/ruffle>; its bundled license is in `app/Resources/Web/RUFFLE-LICENSE.md`. Desktop Tower Defense Pro and its original assets belong to their respective rights holders. Provenance and redistribution rights are unverified; no ownership or redistribution license is asserted.
+Ruffle is developed at <https://github.com/ruffle-rs/ruffle>; its bundled license is in `app/Resources/Web/RUFFLE-LICENSE.md`. Desktop Tower Defense Pro and its original assets belong to their respective rights holders. The original game and its assets are credited to their respective creators.
