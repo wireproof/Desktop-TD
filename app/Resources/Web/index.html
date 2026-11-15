@@ -1,0 +1,80 @@
+<!doctype html>
+<html><head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; frame-src 'none'">
+<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151b18;touch-action:none}body{display:flex;align-items:center;justify-content:center;padding:0}#game{flex:none;width:100%;height:100%;background:#111;touch-action:none}ruffle-player{width:100%;height:100%;display:block;touch-action:none}#message{position:absolute;bottom:5px;color:#ddd;font:12px system-ui;pointer-events:none}</style><script src="ruffle.js"></script></head>
+<body><div id="game"></div><div id="message">Loading Desktop TD…</div><script>
+function enableDrag(player) {
+  let gesture = null, upgradeGesture = null;
+  function upgradeHit(e, r) {
+    const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    return x>=.72 && x<=.87 && y>=.77 && y<=.85;
+  }
+  function upgradeReady() {
+    try { return typeof player.wireUpgradeAvailable === 'function' && player.wireUpgradeAvailable() === true; } catch (_) { return false; }
+  }
+  function swallow(e) { e.preventDefault(); e.stopImmediatePropagation(); }
+  function send(type, point, buttons, pointerId) {
+    const canvas = player.shadowRoot?.querySelector('canvas'); if (!canvas) return;
+    canvas.dispatchEvent(new PointerEvent(type,{bubbles:true,cancelable:true,composed:true,view:window,pointerId,pointerType:'touch',isPrimary:true,clientX:point.x,clientY:point.y,button:0,buttons}));
+  }
+  player.addEventListener('pointerdown', e => {
+    if(e.pointerType !== 'touch' || !e.isTrusted) return;
+    const r=player.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    if (upgradeHit(e,r) && upgradeReady()) { upgradeGesture={id:e.pointerId,r}; gesture=null; swallow(e); return; }
+    gesture=(x>.70 && y>.075 && y<.34) ? {x:e.clientX,y:e.clientY,id:e.pointerId,r,selected:false} : null;
+  },true);
+  player.addEventListener('pointermove', e => {
+    if(upgradeGesture && e.pointerId===upgradeGesture.id && e.isTrusted) { swallow(e); return; }
+    if(!gesture || gesture.selected || !e.isTrusted || e.pointerId!==gesture.id) return;
+    if(Math.hypot(e.clientX-gesture.x,e.clientY-gesture.y)<15) return;
+    // While the real finger is still down, release the palette button at its
+    // original location so the Flash game selects the tower as on desktop.
+    gesture.selected=true;
+    send('pointermove',gesture,1,gesture.id); send('pointerup',gesture,0,gesture.id);
+  },true);
+  player.addEventListener('pointercancel', e => {if(upgradeGesture && e.pointerId===upgradeGesture.id) {upgradeGesture=null; swallow(e)} gesture=null},true);
+  player.addEventListener('pointerup', e => {
+    if(upgradeGesture && e.isTrusted && e.pointerId===upgradeGesture.id) {
+      const pending=upgradeGesture; upgradeGesture=null; swallow(e);
+      if(upgradeHit(e,pending.r) && upgradeReady()) player.wireUpgradeSelected();
+      return;
+    }
+    if(!gesture || !e.isTrusted || e.pointerId!==gesture.id) return;
+    const from=gesture; gesture=null; const point={x:e.clientX,y:e.clientY};
+    const x=(point.x-from.r.left)/from.r.width,y=(point.y-from.r.top)/from.r.height;
+    if(!from.selected || x<.05 || x>.68 || y<.10 || y>.85) return;
+    // The game's grid places on mouse down; the real pointer is still active
+    // while this capture handler runs. The actual release follows naturally.
+    send('pointermove',point,0,from.id); send('pointerdown',point,1,from.id);
+  },true);
+}
+window.addEventListener('load',async()=>{try{
+  let p=window.RufflePlayer.newest().createPlayer();document.querySelector('#game').appendChild(p);enableDrag(p);
+  await p.ruffle().load({url:'game.swf',autoplay:'on',unmuteOverlay:'visible',allowNetworking:'all',allowScriptAccess:true,openUrlMode:'deny',scale:'exactFit',forceScale:true,letterbox:'off'});
+  window.wireCheckpointCommand = function(command) {
+    const method = command === 'save' ? 'wireSaveCheckpoint' : 'wireLoadCheckpoint';
+    if (typeof p[method] !== 'function') return 'Open a Sandbox game first.';
+    const result = p[method]();
+    if (command === 'save' && String(result).startsWith('Waiting')) {
+      const timer = setInterval(() => {
+        const status = typeof p.wireCheckpointStatus === 'function' ? p.wireCheckpointStatus() : '';
+        if (status && !String(status).startsWith('Waiting')) {
+          clearInterval(timer);
+          window.webkit?.messageHandlers?.gameStatus?.postMessage({checkpoint: String(status)});
+          window.desktopBridge?.checkpointStatus?.(String(status));
+        }
+      }, 1000);
+    }
+    return String(result);
+  };
+  let lastScreen;
+  const updateScreen = () => {
+    let screen='menu';
+    try { if(typeof p.wireIsGameScreen === 'function' && p.wireIsGameScreen() === true) screen='game'; } catch (_) {}
+    if(screen!==lastScreen) {lastScreen=screen; window.webkit?.messageHandlers?.gameStatus?.postMessage({screen});}
+  };
+  updateScreen(); setInterval(updateScreen,250);
+  window.webkit?.messageHandlers?.gameStatus?.postMessage('SWF loaded');
+  window.desktopBridge?.gameLoaded?.();document.querySelector('#message').remove();
+}catch(e){window.webkit?.messageHandlers?.gameStatus?.postMessage('Load failed: '+e);document.querySelector('#message').textContent='Game could not load: '+e}})
+</script></body></html>
