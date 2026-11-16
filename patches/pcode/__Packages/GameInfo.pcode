@@ -2442,11 +2442,11 @@ Push 4
 Equals2
 Not
 If loc3061
-Push 25, 19, 21, 16, 14, 68, 50, 24, 28, 9, register1, "SetMap"
+Push 25, 19, 21, 16, 16, 42, 16, 24, 28, 9, register1, "SetMap"
 CallMethod
 Pop
 Jump loc309c
-loc3061:Push 17, 10, 14, 9, 14, 68, 50, 24, 28, 9, register1, "SetMap"
+loc3061:Push 17, 10, 14, 9, 16, 42, 16, 24, 28, 9, register1, "SetMap"
 CallMethod
 Pop
 loc309c:Jump loc313c

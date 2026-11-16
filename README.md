@@ -4,15 +4,16 @@ Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop T
 
 ## iPhone build
 
-The current build is **0.4.9 (18)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. Placed tower turrets use three times the original internal rendering resolution, preserving the original designs; tower bases and the rest of the interface are unchanged. A controlled test exercised all nine tower types and an in-wave upgrade; sustained physical-device performance remains unverified. The red icon is the default; the settings menu offers the supplied purple alternative.
+The current build is **0.4.10 (19)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. Placed tower turrets use three times the original internal rendering resolution, preserving the original designs; tower bases and the rest of the interface are unchanged. A controlled test exercised all nine tower types and an in-wave upgrade; sustained physical-device performance remains unverified. The red icon is the default; the settings menu offers the supplied purple alternative.
 
 The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The new settings-button position, purple icon, long sessions, and all combinations of towers and modes still require physical-device verification. Physical-device runtime and visual testing of this build remain pending. Screens with camera cutouts or system overlays may cover edge content when filling the display.
 
 ## Playing
 
 - Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is supported for touch; mouse and trackpad dragging is supported; the owner confirmed mouse dragging and right-click cancellation on the iPad in build 0.4.5.
+- When your last life is lost in a single-player game, choose **Continue game** to restore 20 lives and keep the current wave, towers, and gold, or choose **End game** for the original results screen. Continuing has been tested in a controlled browser; physical-device testing remains pending.
 - Tap a placed tower to select it, then use **Upgrade** or **Sell**. An in-wave upgrade takes time and shows a progress bar. Upgrades require sufficient gold and must be enabled in Sandbox settings. The selected-tower summary labels its current total value, the additional upgrade cost, and the sale refund. In normal single-player play, selling before the first wave returns full value; selling after a wave starts returns 75%, rounded down. The final Pellet-to-Sniper upgrade costs $120 when the level-5 value is $80.
-- Use the settings button for the local checkpoint commands and alternative app icon. Choose **Show map magnifier** to display a movable enlarged window. Drag its title to move it, drag inside the window to pan, use + and − to adjust magnification, and tap inside to place the selected tower or select an existing one. Close it with × or the settings menu. The large map contains 36 × 32 cells, compared with 28 × 24 on the normal map. Its board now uses the available desk space, with cells 20% wider and taller than in earlier builds; the number of cells is unchanged.
+- Use the settings button for the local checkpoint commands and alternative app icon. Choose **Show map magnifier** to display a movable enlarged window. Drag its title to move it, drag inside the window to pan, use + and − to adjust magnification, and tap inside to place the selected tower or select an existing one. Close it with × or the settings menu. The large map contains 36 × 32 cells, compared with 28 × 24 on the normal map. The large and normal boards use more of the available desk space: large cells are 20% wider and taller than in earlier builds, and normal cells are about 14% wider and taller; the number of cells is unchanged.
 - The original Sandbox **Preload towers** option can restore the last tower layout saved by the game when a run is started. Use matching Sandbox settings.
 
 ### Local checkpoints
@@ -71,7 +72,7 @@ DTD_FFDEC_JAR=/path/to/ffdec.jar scripts/rebuild-swf.sh original.swf rebuilt.swf
 shasum -a 256 rebuilt.swf
 ```
 
-The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `508fba27e7dd81ea6f26713fad06b83049cabc31d4d1a1d1c76f5e7de896f6f7`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
+The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `b9af521dc6c2c7f7735928d40253c53ddce91f844c5e87d806fd775a4dd7bef2`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
 
 ## Planned platforms and work
 

@@ -18,6 +18,21 @@ function LoadGame()
    {
       ModeSettings.bgNum = 1;
    }
+   if(Game.prototype.wireOriginalShowFinish == undefined)
+   {
+      Game.prototype.wireOriginalShowFinish = Game.prototype.ShowFinish;
+      Game.prototype.ShowFinish = function()
+      {
+         if(this.lives.Get() <= 0 && !ModeSettings.MPMode && !ModeSettings.PMPMode)
+         {
+            this.gameState = 2;
+            _global.wireContinuePending = true;
+            return;
+         }
+         this.wireOriginalShowFinish();
+      };
+   }
+   _global.wireContinuePending = false;
    _gn = "g" + random(1000);
    _root[_gn] = new Game();
    _global.URLOK.Set(true);
@@ -251,3 +266,27 @@ function wireMagnifierTap(x, y)
    return true;
 }
 flash.external.ExternalInterface.addCallback("wireMagnifierTap", null, wireMagnifierTap);
+
+function wireContinueAvailable()
+{
+   return _global.wireContinuePending == true && Game.me != undefined && Game.me.gameState == 2;
+}
+function wireContinueChoice(keepPlaying)
+{
+   var g = Game.me;
+   if(!wireContinueAvailable()) return false;
+   _global.wireContinuePending = false;
+   if(keepPlaying)
+   {
+      g.lives.Set(20);
+      GameGUI.txtLives.text = "20";
+      g.gameState = 1;
+   }
+   else
+   {
+      g.wireOriginalShowFinish();
+   }
+   return true;
+}
+flash.external.ExternalInterface.addCallback("wireContinueAvailable", null, wireContinueAvailable);
+flash.external.ExternalInterface.addCallback("wireContinueChoice", null, wireContinueChoice);
