@@ -157,3 +157,24 @@ function wireIsGameScreen()
    return _root._currentframe == 3 || _root._currentframe == 4 || _root._currentframe == 5;
 }
 flash.external.ExternalInterface.addCallback("wireIsGameScreen", null, wireIsGameScreen);
+function wirePlaceTower(type, x, y)
+{
+   var g = Game.me;
+   var grid = GameGUI.grid;
+   if(g == undefined || grid == undefined || g.gameState >= 2 || type < 1 || type > 9 || !g.gameInfo.CanBuy(type)) return false;
+   var col = int((x - grid.startX) / grid.gridSize);
+   var row = int((y - grid.startY) / grid.gridSize);
+   if(x < grid.startX || y < grid.startY || col < 0 || row < 0 || col >= grid.cols || row >= grid.rows) return false;
+   var cell = g.gameInfo.cells[row][col];
+   if(y < cell.top + grid.gridSize / 2) row--;
+   if(x < cell.left + grid.gridSize / 2) col--;
+   row = Math.max(0, Math.min(grid.rows - 2, row));
+   col = Math.max(0, Math.min(grid.cols - 2, col));
+   var t = grid.dragTower;
+   if(t == undefined || t.towerType != type) t = g.gameInfo.AddTower(type,true);
+   if(t == undefined || grid.CellHitTest(row,col,t) != 0) { g.CancelSelect(); return false; }
+   var oldCount = g.gameInfo.towers.length;
+   g.PlaceTower(t,g.gameInfo.cells[row][col]);
+   return g.gameInfo.towers.length > oldCount;
+}
+flash.external.ExternalInterface.addCallback("wirePlaceTower", null, wirePlaceTower);
