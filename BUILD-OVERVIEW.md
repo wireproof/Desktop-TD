@@ -1,12 +1,12 @@
 # Desktop TD
 
-Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop Tower Defense Pro** Flash game. It runs the original game and its graphics and sounds using a bundled Ruffle player in a local `WKWebView`. The app is not a native rewrite or an upscaled graphics remaster. This project preserves the recovered game for testing.
+Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop Tower Defense Pro** Flash game. It runs the original game and its graphics and sounds using a bundled Ruffle player in a local `WKWebView`. The app is not a native rewrite or a complete graphics remaster. This project preserves the recovered game for testing.
 
 ## iPhone build
 
-The current build is **0.4.5 (14)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. The red icon is the default; the settings menu offers the supplied purple alternative.
+The current build is **0.4.6 (15)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. Placed turrets are rendered at twice the original internal resolution while retaining their original vector designs. Tower bases, palette and desk artwork remain unchanged. The red icon is the default; the settings menu offers the supplied purple alternative.
 
-The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.5 (14) is installed on the iPhone Duo and 11-inch iPad Pro. It uses the game’s own placement logic for experimental mouse and trackpad dragging; runtime testing of this update and iPad gameplay, sizing and audio have not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
+The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.6 (15) is installed on the iPhone Duo and 11-inch iPad Pro. The owner confirmed that trackpad dragging, its preview and right-click cancellation worked on 0.4.5. Version 0.4.6 was exercised in an iPad simulator with all nine tower types and an in-wave upgrade; runtime and visual testing on physical devices remain pending. Screens with camera cutouts or system overlays may cover edge content when filling the display.
 
 ## Playing
 
@@ -73,7 +73,7 @@ DTD_FFDEC_JAR=/path/to/ffdec.jar scripts/rebuild-swf.sh original.swf rebuilt.swf
 shasum -a 256 rebuilt.swf
 ```
 
-The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `e257e4c6cd17824cf661f59da10482fac6ba439d203bb5249ca4c82baeee8080`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
+The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `41969cccb67a5064e60ddf086fdba252e1ebefacd32bfb50c5dc1e86f7f277fd`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
 
 ## Planned platforms and work
 

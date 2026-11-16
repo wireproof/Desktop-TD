@@ -1,0 +1,2624 @@
+ConstantPool "_global", "Tower", "gridRatio", "Game", "me", "gameInfo", "shotField", "groundField", "hTower", "GameGUI", "grid", "_visible", "tgroup", "upgradeBar", "shotTick", "size", "targetAngle", "upTicks", "upTickTotal", "sellTicks", "select", "targets", "targetNum", "firing", "SetSelected", "SetSkin", "SetFrameTick", "base", "cacheAsBitmap", "pips", "boosted", "SecNum", "boostTowers", "boost", "range2", "range", "Get", "minRange2", "minRange", "CreateTurret", "MovieClip", "prototype", "Init", "_xscale", "_yscale", "SetRotation", "ApplyBoost", "CheckForBoost", "_lvl", "__get__level", "ModeSettings", "skinNum", "towerType", "bturret", "Turret", "VectorBitmapRotator2", "gridSize", "PreRender", "towerType:", " w:", "getNextHighestDepth", "turret", "createEmptyMovieClip", "attachBitmap", "_x", "_y", "__set__level", "sn_level", "Set", "CleanUp", "Serialize", "", "topLeftCell", "col", "GameUtils", "PadNumber", "row", "concat", "SetSilence", "SILENCE:", "offTicks", "FrameTick", "SilenceTick", "_rotation", "AirTick", "FireTick", "BoostTick", "NormalTick", "GetNeighbourTowers", "SetBoostTower", "RemoveBoostTower", "splice", "ShowBoostFilter", "SetBoostTower:", "id", "push", "boosted1:", ", b:", "boosted2:", "filters", "flash", "GlowFilter", "cells", "tower", "RemoveBoost", "gotoAndStop", "DropShadowFilter", "onPress", "dragTower", "SelectTower", "ApplyUpgrade", "upObject", "ModifyTowerRangeBox", "SetBoost", "towerName", "level", "damage", "hitRate", "splash", "slow", "cost", "bash", "stun", "SetPips", "HEXtoRGB", "_color", "b", "g", "r", "SetTint", "target", "TowerUpgraded", "upgrade.wav", "PlaySound", "rotating", "Math", "random", "__set__rotation", "left", "top", "selectFade", "selectNum", "FadeSelect", "_alpha", "TargetValid", "flying", "ok", "immune", "shotHealth", "AcquireTarget", "creeps", "length", "InRange", "Sell", "MPMode", "PMPMode", "arcadeMode", "sellTickTotal", "_width", "SellTick", "Upgrade", "UpgradeTick", "SellTower", "Fire", "Fire! ", "FireTick2", "CreepClass", "pop", "AddShot", "RemoveTower", "flyingCreeps", "dragged", "AddGroundShot", "Rotate", "atan2", "round", "Object", "ra", "ga", "ba", "rb", "gb", "bb", "Color", "setTransform", "isNaN", "parseInt", "addProperty", "ASSetPropFlags"
+Push "_global"
+GetVariable
+Push "Tower"
+GetMember
+Not
+Not
+If loc31a0
+Push "_global"
+GetVariable
+Push "Tower"
+DefineFunction2 "", 0, 4, false, true, false, true, true, false, false, true, false {
+Push 0.0, register2, undefined
+CallMethod
+Pop
+Push register1, "gridRatio", "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "gridRatio"
+GetMember
+SetMember
+Push register1, "shotField", register3, "shotField"
+GetMember
+SetMember
+Push register1, "groundField", register3, "groundField"
+GetMember
+SetMember
+Push register1, "hTower", "GameGUI"
+GetVariable
+Push "grid"
+GetMember
+Push "hTower"
+GetMember
+SetMember
+Push register1, "_visible", false
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_visible", false
+SetMember
+Push register1, "shotTick", 0.0
+SetMember
+Push register1, "size", 2
+SetMember
+Push register1, "targetAngle", 0.0
+SetMember
+Push register1, "upTicks", 0.0
+SetMember
+Push register1, "upTickTotal", 0.0
+SetMember
+Push register1, "sellTicks", 0.0
+SetMember
+Push register1, "select", false
+SetMember
+Push register1, "targets", 0.0
+InitArray
+SetMember
+Push register1, "targetNum", -1
+SetMember
+Push register1, "firing", false
+SetMember
+Push false, 1, register1, "SetSelected"
+CallMethod
+Pop
+Push 0.0, register1, "SetSkin"
+CallMethod
+Pop
+Push 0.0, register1, "SetFrameTick"
+CallMethod
+Pop
+Push register1, "tgroup"
+GetMember
+Push "base"
+GetMember
+Push "cacheAsBitmap", true
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push "cacheAsBitmap", true
+SetMember
+Push register1, "boosted", 100, 1, "SecNum"
+NewObject
+SetMember
+Push register1, "boostTowers", 0.0
+InitArray
+SetMember
+Push register1, "boost"
+GetMember
+Push undefined
+Equals2
+Not
+If loc0871
+Push register1, "boost", 0.0, 1, "SecNum"
+NewObject
+SetMember
+loc0871:Push register1, "range2", 0.0, register1, "range"
+GetMember
+Push "Get"
+CallMethod
+Push register1, "gridRatio"
+GetMember
+Multiply
+SetMember
+Push register1, "minRange2", 0.0, register1, "minRange"
+GetMember
+Push "Get"
+CallMethod
+Push register1, "gridRatio"
+GetMember
+Multiply
+SetMember
+Push 0.0, register1, "CreateTurret"
+CallMethod
+Pop
+}
+StoreRegister 1
+SetMember
+Push "_global"
+GetVariable
+Push "Tower"
+GetMember
+Push "MovieClip"
+GetVariable
+Extends
+Push register1, "prototype"
+GetMember
+StoreRegister 2
+Pop
+Push register2, "Init"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "tgroup"
+GetMember
+Push "_xscale", register1, "tgroup"
+GetMember
+Push "_yscale", 100, register1, "gridRatio"
+GetMember
+Multiply
+StoreRegister 0
+SetMember
+Push register0
+SetMember
+Push register1, "_visible", true
+SetMember
+Push 0.0, register1, "SetRotation"
+CallMethod
+Pop
+Push 0.0, register1, "boost"
+GetMember
+Push "Get"
+CallMethod
+Push 0.0
+Greater
+Not
+If loc098e
+Push 0.0, register1, "ApplyBoost"
+CallMethod
+Pop
+Jump loc09a0
+loc098e:Push 0.0, register1, "CheckForBoost"
+CallMethod
+Pop
+loc09a0:Push register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push "_lvl", 0.0, register1, "__get__level"
+CallMethod
+Push 1
+Subtract
+SetMember
+}
+SetMember
+Push register2, "CreateTurret"
+DefineFunction2 "", 0, 8, false, false, true, false, true, false, false, true, false {
+Push "ModeSettings"
+GetVariable
+Push "skinNum"
+GetMember
+StoreRegister 4
+Pop
+Push register4, 1
+Subtract
+Push 20
+Multiply
+Push register1, "towerType"
+GetMember
+Add2
+Push 0.0, register1, "__get__level"
+CallMethod
+Push 6
+Less2
+If loc0a38
+Push 10
+Jump loc0a44
+loc0a38:Push 0.0
+loc0a44:Add2
+StoreRegister 6
+Pop
+Push register1, "bturret", register6, 2, "Turret", 3, "VectorBitmapRotator2"
+NewObject
+SetMember
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "gridSize"
+GetMember
+Push 2
+Multiply
+StoreRegister 2
+Pop
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "gridSize"
+GetMember
+Push 2
+Multiply
+StoreRegister 3
+Pop
+Push register4, 3
+Equals2
+Not
+If loc0aef
+Push register3, 4
+Subtract
+Push 2
+Multiply
+Push register2, 2
+Multiply
+Push 180, 3, register1, "bturret"
+GetMember
+Push "PreRender"
+CallMethod
+StoreRegister 7
+Pop
+Jump loc0c51
+loc0aef:Push register1, "towerType"
+GetMember
+StoreRegister 0
+Push 2
+StrictEquals
+If loc0b5e
+Push register0, 3
+StrictEquals
+If loc0b7d
+Push register0, 5
+StrictEquals
+If loc0b9c
+Push register0, 6
+StrictEquals
+If loc0bbb
+Push register0, 8
+StrictEquals
+If loc0bda
+Push register0, 9
+StrictEquals
+If loc0bf9
+Jump loc0c18
+loc0b5e:Push 24
+StoreRegister 2
+Pop
+Push 24
+StoreRegister 3
+Pop
+Jump loc0c18
+loc0b7d:Push 42
+StoreRegister 2
+Pop
+Push 42
+StoreRegister 3
+Pop
+Jump loc0c18
+loc0b9c:Push 36
+StoreRegister 2
+Pop
+Push 36
+StoreRegister 3
+Pop
+Jump loc0c18
+loc0bbb:Push 24
+StoreRegister 2
+Pop
+Push 20
+StoreRegister 3
+Pop
+Jump loc0c18
+loc0bda:Push 24
+StoreRegister 2
+Pop
+Push 20
+StoreRegister 3
+Pop
+Jump loc0c18
+loc0bf9:Push 24
+StoreRegister 2
+Pop
+Push 20
+StoreRegister 3
+Pop
+Jump loc0c18
+loc0c18:Push "towerType:", register1, "towerType"
+GetMember
+Add2
+Push " w:"
+Add2
+Push register2
+Add2
+Trace
+Push register3, 2
+Multiply
+Push register2, 2
+Multiply
+Push 180, 3, register1, "bturret"
+GetMember
+Push "PreRender"
+CallMethod
+StoreRegister 7
+Pop
+loc0c51:Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "gridSize"
+GetMember
+Trace
+Push 0.0, register1, "getNextHighestDepth"
+CallMethod
+StoreRegister 5
+Pop
+Push register5, "turret", 2, register1, "createEmptyMovieClip"
+CallMethod
+Pop
+Push 1, register7, 2, register1, "turret"
+GetMember
+Push "attachBitmap"
+CallMethod
+Pop
+Push register1, "turret"
+GetMember
+Push "_xscale", 50
+SetMember
+Push register1, "turret"
+GetMember
+Push "_yscale", 50
+SetMember
+Push register1, "turret"
+GetMember
+Push "_x", register1, "turret"
+GetMember
+Push "_x"
+GetMember
+Push register2, 2
+Divide
+Subtract
+SetMember
+Push register1, "turret"
+GetMember
+Push "_y", register1, "turret"
+GetMember
+Push "_y"
+GetMember
+Push register3, 2
+Divide
+Subtract
+SetMember
+}
+SetMember
+Push register2, "__set__level"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "num" {
+Push register1, "sn_level"
+GetMember
+Push undefined
+Equals2
+Not
+If loc0d39
+Push register1, "sn_level", register2, 1, "SecNum"
+NewObject
+SetMember
+Jump loc0d4f
+loc0d39:Push register2, 1, register1, "sn_level"
+GetMember
+Push "Set"
+CallMethod
+Pop
+loc0d4f:Push 0.0, register1, "__get__level"
+CallMethod
+Return
+}
+SetMember
+Push register2, "__get__level"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "sn_level"
+GetMember
+Push "Get"
+CallMethod
+ToInteger
+Return
+}
+SetMember
+Push register2, "CleanUp"
+DefineFunction "", 0 {
+}
+SetMember
+Push register2, "Serialize"
+DefineFunction2 "", 0, 3, false, false, true, false, true, false, false, true, false {
+Push ""
+StoreRegister 2
+Pop
+Push 0.0, register1, "__get__level"
+CallMethod
+Push register1, "towerType"
+GetMember
+Push 2, register1, "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 2, register1, "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 4, register2, "concat"
+CallMethod
+Return
+}
+SetMember
+Push register2, "SetSilence"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "duration" {
+Push "SILENCE:", register1, "towerType"
+GetMember
+Add2
+Trace
+Push register1, "sellTicks"
+GetMember
+Not
+If loc0e65
+Push undefined
+Return
+loc0e65:Push register1, "offTicks", register2
+SetMember
+Push register1, "upTicks"
+GetMember
+Not
+If loc0ec4
+Push register1, "offTicks", register1, "offTicks"
+GetMember
+Push register1, "upTicks"
+GetMember
+Subtract
+SetMember
+Push register1, "offTicks"
+GetMember
+Push 0.0
+Less2
+Not
+If loc0ebf
+Push register1, "offTicks", 0.0
+SetMember
+loc0ebf:Push undefined
+Return
+loc0ec4:Push register1, "FrameTick", register1, "SilenceTick"
+GetMember
+SetMember
+}
+SetMember
+Push register2, "SilenceTick"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "offTicks", register1, "offTicks"
+GetMember
+Decrement
+StoreRegister 0
+SetMember
+Push register0, 0.0
+Greater
+Not
+Not
+If loc0f48
+Push register1, "offTicks", 0.0
+SetMember
+Push 0.0, register1, "SetFrameTick"
+CallMethod
+Pop
+Push register1, "tgroup"
+GetMember
+Push "turret"
+GetMember
+Push "_rotation", register1, "targetAngle"
+GetMember
+SetMember
+loc0f48:Push register1, "tgroup"
+GetMember
+Push "turret"
+GetMember
+Push "_rotation", register1, "tgroup"
+GetMember
+Push "turret"
+GetMember
+Push "_rotation"
+GetMember
+Push 5
+Add2
+SetMember
+Push true
+Return
+}
+SetMember
+Push register2, "SetFrameTick"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "offTicks"
+GetMember
+Push 0.0
+Greater
+Not
+If loc0fbc
+Push register1, "FrameTick", register1, "SilenceTick"
+GetMember
+SetMember
+Jump loc103e
+loc0fbc:Push register1, "towerType"
+GetMember
+StoreRegister 0
+Push 4
+StrictEquals
+If loc0ffb
+Push register0, 8
+StrictEquals
+If loc100d
+Push register0, 9
+StrictEquals
+If loc101f
+Jump loc1031
+loc0ffb:Push register1, "FrameTick", register1, "AirTick"
+GetMember
+SetMember
+Jump loc103e
+loc100d:Push register1, "FrameTick", register1, "FireTick"
+GetMember
+SetMember
+Jump loc103e
+loc101f:Push register1, "FrameTick", register1, "BoostTick"
+GetMember
+SetMember
+Jump loc103e
+loc1031:Push register1, "FrameTick", register1, "NormalTick"
+GetMember
+SetMember
+}
+loc103e:SetMember
+Push register2, "CheckForBoost"
+DefineFunction2 "", 0, 4, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "GetNeighbourTowers"
+CallMethod
+StoreRegister 2
+Pop
+Push register2
+Enumerate2
+loc106d:StoreRegister 0
+Push null
+Equals2
+If loc10f3
+Push register0
+StoreRegister 3
+Pop
+Push 0.0, register2, register3
+GetMember
+Push "boost"
+GetMember
+Push "Get"
+CallMethod
+Push 0.0
+Greater
+PushDuplicate
+Not
+If loc10d2
+Pop
+Push register2, register3
+GetMember
+Push "upTicks"
+GetMember
+Push 0.0
+Equals2
+loc10d2:Not
+If loc10ee
+Push register2, register3
+GetMember
+Push 1, register1, "SetBoostTower"
+CallMethod
+Pop
+loc10ee:Jump loc106d
+}
+loc10f3:SetMember
+Push register2, "RemoveBoostTower"
+DefineFunction2 "", 1, 5, false, false, true, false, true, false, false, true, false, 3, "t" {
+Push undefined
+StoreRegister 2
+Pop
+Push register1, "boostTowers"
+GetMember
+Enumerate2
+loc111b:StoreRegister 0
+Push null
+Equals2
+If loc117d
+Push register0
+StoreRegister 4
+Pop
+Push register1, "boostTowers"
+GetMember
+Push register4
+GetMember
+Push register3
+Equals2
+Not
+If loc116d
+Push 1, register4, 2, register1, "boostTowers"
+GetMember
+Push "splice"
+CallMethod
+Pop
+Jump loc1172
+loc116d:Jump loc111b
+loc1172:Push null
+Equals2
+Not
+If loc1172
+loc117d:Push 100
+StoreRegister 2
+Pop
+Push register1, "boostTowers"
+GetMember
+Enumerate2
+loc1193:StoreRegister 0
+Push null
+Equals2
+If loc11db
+Push register0
+StoreRegister 4
+Pop
+Push register2, 0.0, register1, "boostTowers"
+GetMember
+Push register4
+GetMember
+Push "boost"
+GetMember
+Push "Get"
+CallMethod
+Add2
+StoreRegister 2
+Pop
+Jump loc1193
+loc11db:Push register2, 1, register1, "boosted"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push 0.0, register1, "ShowBoostFilter"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "SetBoostTower"
+DefineFunction2 "", 1, 6, false, false, true, false, true, false, false, true, false, 4, "t" {
+Push false
+StoreRegister 3
+Pop
+Push undefined
+StoreRegister 2
+Pop
+Push 0.0, register1, "boost"
+GetMember
+Push "Get"
+CallMethod
+Push 0.0
+Greater
+Not
+If loc125b
+Push undefined
+Return
+loc125b:Push "SetBoostTower:", register1, "id"
+GetMember
+Add2
+Trace
+Push 100
+StoreRegister 2
+Pop
+Push register1, "boostTowers"
+GetMember
+Enumerate2
+loc127d:StoreRegister 0
+Push null
+Equals2
+If loc12f9
+Push register0
+StoreRegister 5
+Pop
+Push register1, "boostTowers"
+GetMember
+Push register5
+GetMember
+Push register4
+Equals2
+Not
+If loc12be
+Push true
+StoreRegister 3
+Pop
+Jump loc12ee
+loc12be:Push register2, 0.0, register1, "boostTowers"
+GetMember
+Push register5
+GetMember
+Push "boost"
+GetMember
+Push "Get"
+CallMethod
+Add2
+StoreRegister 2
+Pop
+Jump loc127d
+loc12ee:Push null
+Equals2
+Not
+If loc12ee
+loc12f9:Push register3
+Not
+Not
+If loc1398
+Push register4, 1, register1, "boostTowers"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register2, 0.0, register4, "boost"
+GetMember
+Push "Get"
+CallMethod
+Add2
+StoreRegister 2
+Pop
+Push "boosted1:", 0.0, register1, "boosted"
+GetMember
+Push "Get"
+CallMethod
+Add2
+Push ", b:"
+Add2
+Push register2, 100
+Divide
+Add2
+Trace
+Push register2, 1, register1, "boosted"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push "boosted2:", 0.0, register1, "boosted"
+GetMember
+Push "Get"
+CallMethod
+Add2
+Trace
+loc1398:Push 0.0, register1, "ShowBoostFilter"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "ShowBoostFilter"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "boosted"
+GetMember
+Push "Get"
+CallMethod
+Push 100
+Greater
+Not
+If loc142f
+Push register1, "filters", 3, 2, 5, 5, 0.8, 10066431, 6, "flash"
+GetVariable
+Push "filters"
+GetMember
+Push "GlowFilter"
+NewMethod
+Push 1
+InitArray
+SetMember
+Jump loc1441
+loc142f:Push register1, "filters", 0.0
+InitArray
+SetMember
+}
+loc1441:SetMember
+Push register2, "GetNeighbourTowers"
+DefineFunction2 "", 0, 8, false, false, true, false, true, false, false, true, false {
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "cells"
+GetMember
+StoreRegister 6
+Pop
+Push undefined
+StoreRegister 2
+Pop
+Push register1, "topLeftCell"
+GetMember
+Push "row"
+GetMember
+StoreRegister 7
+Pop
+Push register1, "topLeftCell"
+GetMember
+Push "col"
+GetMember
+StoreRegister 5
+Pop
+Push undefined
+StoreRegister 3
+Pop
+Push 0.0
+InitArray
+StoreRegister 4
+Pop
+Push register6, register7, 1
+Subtract
+GetMember
+StoreRegister 3
+Pop
+Push register3, register5, 1
+Subtract
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc1502
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc1502:Push register3, register5
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc1530
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc1530:Push register3, register5, 2
+Add2
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc1564
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc1564:Push register6, register7
+GetMember
+StoreRegister 3
+Pop
+Push register3, register5, 1
+Subtract
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc15a5
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc15a5:Push register3, register5, 2
+Add2
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc15d9
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc15d9:Push register6, register7, 2
+Add2
+GetMember
+StoreRegister 3
+Pop
+Push register3, register5, 1
+Subtract
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc1620
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc1620:Push register3, register5
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc164e
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc164e:Push register3, register5, 2
+Add2
+GetMember
+Push "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc1682
+Push register2, 1, register4, "push"
+CallMethod
+Pop
+loc1682:Push register4
+Return
+}
+SetMember
+Push register2, "ApplyBoost"
+DefineFunction2 "", 0, 5, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "GetNeighbourTowers"
+CallMethod
+StoreRegister 2
+Pop
+Push undefined
+StoreRegister 4
+Pop
+Push register2
+Enumerate2
+loc16c0:StoreRegister 0
+Push null
+Equals2
+If loc16f3
+Push register0
+StoreRegister 3
+Pop
+Push register1, 1, register2, register3
+GetMember
+Push "SetBoostTower"
+CallMethod
+Pop
+Jump loc16c0
+}
+loc16f3:SetMember
+Push register2, "RemoveBoost"
+DefineFunction2 "", 0, 5, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "GetNeighbourTowers"
+CallMethod
+StoreRegister 2
+Pop
+Push undefined
+StoreRegister 4
+Pop
+Push register2
+Enumerate2
+loc172b:StoreRegister 0
+Push null
+Equals2
+If loc175e
+Push register0
+StoreRegister 3
+Pop
+Push register1, 1, register2, register3
+GetMember
+Push "RemoveBoostTower"
+CallMethod
+Pop
+Jump loc172b
+}
+loc175e:SetMember
+Push register2, "SetSkin"
+DefineFunction2 "", 0, 3, false, false, true, false, true, false, false, true, false {
+Push "ModeSettings"
+GetVariable
+Push "skinNum"
+GetMember
+StoreRegister 2
+Pop
+Push register2, 1
+Subtract
+Push 10
+Multiply
+Push 0.0, register1, "__get__level"
+CallMethod
+Add2
+Push 1, register1, "tgroup"
+GetMember
+Push "base"
+GetMember
+Push "gotoAndStop"
+CallMethod
+Pop
+Push register2, 3
+Equals2
+Not
+If loc1839
+Push register1, "tgroup"
+GetMember
+Push "base"
+GetMember
+Push "filters", 1, 0.25, 2, 2, 100, 0.0, 45, 5, 8, "flash"
+GetVariable
+Push "filters"
+GetMember
+Push "DropShadowFilter"
+NewMethod
+Push 1
+InitArray
+SetMember
+Jump loc1839
+loc1839:Push register2, 2
+Greater
+PushDuplicate
+Not
+If loc1857
+Pop
+Push register2, 5
+Less2
+loc1857:Not
+If loc1878
+Push register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push "_visible", false
+SetMember
+Jump loc188e
+loc1878:Push register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push "_visible", true
+SetMember
+}
+loc188e:SetMember
+Push register2, "onPress"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push "GameGUI"
+GetVariable
+Push "grid"
+GetMember
+Push "dragTower"
+GetMember
+Not
+If loc18be
+Jump loc18d8
+loc18be:Push register1, 1, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "SelectTower"
+CallMethod
+Pop
+}
+loc18d8:SetMember
+Push register2, "ApplyUpgrade"
+DefineFunction2 "", 0, 5, false, false, true, false, true, false, false, true, false {
+Push register1, "upObject"
+GetMember
+Push "range"
+GetMember
+Push 0.0, register1, "range"
+GetMember
+Push "Get"
+CallMethod
+Equals2
+Not
+StoreRegister 4
+Pop
+Push register4
+Not
+If loc1944
+Push false, register1, 2, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "ModifyTowerRangeBox"
+CallMethod
+Pop
+loc1944:Push register1, "upObject"
+GetMember
+Push "boost"
+GetMember
+Push 0.0
+Greater
+Not
+If loc1997
+Push register1, "upObject"
+GetMember
+Push "boost"
+GetMember
+Push 0.0, register1, "boost"
+GetMember
+Push "Get"
+CallMethod
+Subtract
+Push 1, "SetBoost"
+CallFunction
+Pop
+loc1997:Push register1, "towerName", register1, "upObject"
+GetMember
+Push "towerName"
+GetMember
+SetMember
+Push register1, "upObject"
+GetMember
+Push "level"
+GetMember
+Push 1, register1, "__set__level"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "damage"
+GetMember
+Push 1, register1, "damage"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "range"
+GetMember
+Push 1, register1, "range"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "hitRate"
+GetMember
+Push 1, register1, "hitRate"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "splash"
+GetMember
+Push 1, register1, "splash"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "slow"
+GetMember
+Push 1, register1, "slow"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "cost"
+GetMember
+Push 1, register1, "cost"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "bash"
+GetMember
+Push 1, register1, "bash"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "stun"
+GetMember
+Push 1, register1, "stun"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "upObject"
+GetMember
+Push "boost"
+GetMember
+Push 1, register1, "boost"
+GetMember
+Push "Set"
+CallMethod
+Pop
+Push register1, "range2", 0.0, register1, "range"
+GetMember
+Push "Get"
+CallMethod
+Push register1, "gridRatio"
+GetMember
+Multiply
+SetMember
+Push register1, "minRange2", 0.0, register1, "minRange"
+GetMember
+Push "Get"
+CallMethod
+Push register1, "gridRatio"
+GetMember
+Multiply
+SetMember
+Push register4
+Not
+If loc1b6f
+Push true, register1, 2, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "ModifyTowerRangeBox"
+CallMethod
+Pop
+loc1b6f:Push 0.0, register1, "__get__level"
+CallMethod
+Push 1
+Subtract
+Push 1, register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push "SetPips"
+CallMethod
+Pop
+Push 0.0, register1, "SetSkin"
+CallMethod
+Pop
+Push register1, "upObject", undefined
+SetMember
+Push register1, "upTicks", 0.0
+SetMember
+Push register1, "upTickTotal", 0.0
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_visible", false
+SetMember
+Push register1, "turret"
+GetMember
+Push "_visible", true
+SetMember
+Push 0.0, register1, "SetFrameTick"
+CallMethod
+Pop
+Push undefined
+StoreRegister 2
+Pop
+Push register1, "towerType"
+GetMember
+StoreRegister 0
+Push 1
+StrictEquals
+If loc1c90
+Push register0, 2
+StrictEquals
+If loc1ca6
+Push register0, 3
+StrictEquals
+If loc1cb8
+Push register0, 4
+StrictEquals
+If loc1cca
+Push register0, 5
+StrictEquals
+If loc1cdc
+Push register0, 6
+StrictEquals
+If loc1cee
+Jump loc1d00
+loc1c90:Push 0.0
+StoreRegister 2
+Pop
+Jump loc1d00
+loc1ca6:Push 11141120
+StoreRegister 2
+Pop
+Jump loc1d00
+loc1cb8:Push 170
+StoreRegister 2
+Pop
+Jump loc1d00
+loc1cca:Push 43520
+StoreRegister 2
+Pop
+Jump loc1d00
+loc1cdc:Push 7829418
+StoreRegister 2
+Pop
+Jump loc1d00
+loc1cee:Push 7798903
+StoreRegister 2
+Pop
+Jump loc1d00
+loc1d00:Push register2, 1, register1, "HEXtoRGB"
+CallMethod
+StoreRegister 3
+Pop
+Push register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push "_color", 0.0, register1, "__get__level"
+CallMethod
+Push 1
+Subtract
+Push 20
+Multiply
+Push register3, "b"
+GetMember
+Push register3, "g"
+GetMember
+Push register3, "r"
+GetMember
+Push 4, register1, "SetTint"
+CallMethod
+SetMember
+Push register1, "target", undefined
+SetMember
+Push register1, "targets", 0.0
+InitArray
+SetMember
+Push 0.0, register1, "boost"
+GetMember
+Push "Get"
+CallMethod
+Push 0.0
+Greater
+Not
+If loc1dc4
+Push 0.0, register1, "ApplyBoost"
+CallMethod
+Pop
+loc1dc4:Push register1, 1, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "TowerUpgraded"
+CallMethod
+Pop
+Push "upgrade.wav", 1, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "PlaySound"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "SetRotation"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "rotating"
+GetMember
+Not
+If loc1e5e
+Push register1, "targetAngle", 0.0, "Math"
+GetVariable
+Push "random"
+CallMethod
+Push 360
+Multiply
+SetMember
+Push register1, "targetAngle"
+GetMember
+Push 1, register1, "bturret"
+GetMember
+Push "__set__rotation"
+CallMethod
+Pop
+}
+loc1e5e:SetMember
+Push register2, "SetSelected"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "tf" {
+Push register1, "hTower"
+GetMember
+Push "_visible", register2
+SetMember
+Push register1, "select", register2
+SetMember
+Push register2
+Not
+If loc1f44
+Push register1, "hTower"
+GetMember
+Push "_x", register1, "topLeftCell"
+GetMember
+Push "left"
+GetMember
+Push 1
+Add2
+SetMember
+Push register1, "hTower"
+GetMember
+Push "_y", register1, "topLeftCell"
+GetMember
+Push "top"
+GetMember
+Push 1
+Add2
+SetMember
+Push register1, "selectFade", 1
+SetMember
+Push register1, "selectNum", 50
+SetMember
+Push register1, "filters", 3, 3, 10, 10, 0.5, 16750848, 6, "flash"
+GetVariable
+Push "filters"
+GetMember
+Push "GlowFilter"
+NewMethod
+Push 1
+InitArray
+SetMember
+Jump loc1f67
+loc1f44:Push register1, "selectFade", 0.0
+SetMember
+Push 0.0, register1, "ShowBoostFilter"
+CallMethod
+Pop
+}
+loc1f67:SetMember
+Push register2, "FadeSelect"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "selectNum", register1, "selectNum"
+GetMember
+Push register1, "selectFade"
+GetMember
+Push 5
+Multiply
+Add2
+SetMember
+Push register1, "selectFade"
+GetMember
+Push 1
+Equals2
+Not
+If loc1fda
+Push register1, "selectNum"
+GetMember
+Push 50
+Less2
+Not
+Not
+If loc1fd5
+Push register1, "selectFade", -1
+SetMember
+loc1fd5:Jump loc2003
+loc1fda:Push register1, "selectNum"
+GetMember
+Push 0.0
+Greater
+Not
+Not
+If loc2003
+Push register1, "selectFade", 1
+SetMember
+loc2003:Push register1, "hTower"
+GetMember
+Push "_alpha", register1, "selectNum"
+GetMember
+SetMember
+}
+SetMember
+Push register2, "TargetValid"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "cr" {
+Push register2
+Not
+If loc2133
+Push register2, "flying"
+GetMember
+Not
+If loc20b8
+Push register1, "towerType"
+GetMember
+Push 4
+Equals2
+Not
+If loc206a
+Push "ok", true
+SetVariable
+Jump loc20b3
+loc206a:Push "ok", register1, "towerType"
+GetMember
+Push 2
+Equals2
+Not
+PushDuplicate
+Not
+If loc2098
+Pop
+Push register1, "towerType"
+GetMember
+Push 6
+Equals2
+Not
+loc2098:PushDuplicate
+Not
+If loc20b2
+Pop
+Push register1, "towerType"
+GetMember
+Push 7
+Equals2
+Not
+loc20b2:SetVariable
+loc20b3:Jump loc210f
+loc20b8:Push register2, "immune"
+GetMember
+Not
+If loc20fa
+Push "ok", register1, "towerType"
+GetMember
+Push 4
+Equals2
+Not
+PushDuplicate
+Not
+If loc20f4
+Pop
+Push register1, "towerType"
+GetMember
+Push 5
+Equals2
+Not
+loc20f4:SetVariable
+Jump loc210f
+loc20fa:Push "ok", register1, "towerType"
+GetMember
+Push 4
+Equals2
+Not
+SetVariable
+loc210f:Push "ok"
+GetVariable
+Not
+If loc2133
+Push "ok", register2, "shotHealth"
+GetMember
+Push 0.0
+Greater
+SetVariable
+loc2133:Push "ok"
+GetVariable
+Return
+}
+SetMember
+Push register2, "AcquireTarget"
+DefineFunction2 "", 1, 9, false, false, true, false, true, false, false, true, false, 8, "num" {
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "creeps"
+GetMember
+StoreRegister 7
+Pop
+Push 0.0
+InitArray
+StoreRegister 6
+Pop
+Push 0.0
+StoreRegister 5
+Pop
+Push register7, "length"
+GetMember
+StoreRegister 4
+Pop
+Push register1, "targetNum"
+GetMember
+StoreRegister 3
+Pop
+loc21ac:Push register5, register4
+Less2
+Not
+If loc2268
+Push register5
+Increment
+StoreRegister 5
+Pop
+Push register3
+Increment
+StoreRegister 3
+Push register4
+Less2
+Not
+Not
+If loc21ed
+Push 0.0
+StoreRegister 3
+Pop
+loc21ed:Push register7, register3
+GetMember
+StoreRegister 2
+Pop
+Push register2
+Not
+If loc2263
+Push register2, "flying"
+GetMember
+Not
+If loc2263
+Push register2, "shotHealth"
+GetMember
+Push 0.0
+Greater
+Not
+If loc2263
+Push register2, 1, register1, "InRange"
+CallMethod
+Not
+If loc2263
+Push register2, 1, register6, "push"
+CallMethod
+Push register8
+Equals2
+Not
+If loc2263
+Jump loc2268
+loc2263:Jump loc21ac
+loc2268:Push register6, "length"
+GetMember
+Push 0.0
+Greater
+Not
+If loc2292
+Push register1, "targetNum", register3
+SetMember
+Jump loc229f
+loc2292:Push register1, "targetNum", -1
+SetMember
+loc229f:Push register6
+Return
+}
+SetMember
+Push register2, "Sell"
+DefineFunction2 "", 1, 4, false, false, true, false, true, false, false, true, false, 3, "num" {
+Push register1, "upTicks"
+GetMember
+Push 0.0
+Greater
+Not
+If loc22dd
+Push undefined
+Return
+loc22dd:Push 0.0
+StoreRegister 2
+Pop
+Push "ModeSettings"
+GetVariable
+Push "MPMode"
+GetMember
+PushDuplicate
+If loc230d
+Pop
+Push "ModeSettings"
+GetVariable
+Push "PMPMode"
+GetMember
+loc230d:Not
+If loc235b
+Push "ModeSettings"
+GetVariable
+Push "arcadeMode"
+GetMember
+Not
+If loc2337
+Push 16
+StoreRegister 2
+Pop
+Jump loc2356
+loc2337:Push 12, register3, 6
+Divide
+Push 24
+Multiply
+Add2
+StoreRegister 2
+Pop
+loc2356:Jump loc239e
+loc235b:Push "ModeSettings"
+GetVariable
+Push "arcadeMode"
+GetMember
+Not
+If loc237f
+Push 16
+StoreRegister 2
+Pop
+Jump loc239e
+loc237f:Push 12, register3, 3
+Divide
+Push 24
+Multiply
+Add2
+StoreRegister 2
+Pop
+loc239e:Push register2, 240
+Greater
+Not
+If loc23bc
+Push 240
+StoreRegister 2
+Pop
+loc23bc:Push register1, "sellTickTotal", register2
+SetMember
+Push register1, "sellTicks", register1, "sellTickTotal"
+GetMember
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_visible", true
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_width", 20
+SetMember
+Push register1, "turret"
+GetMember
+Push "_visible", false
+SetMember
+Push register1, "FrameTick", register1, "SellTick"
+GetMember
+SetMember
+}
+SetMember
+Push register2, "Upgrade"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "obj" {
+Push register1, "sellTicks"
+GetMember
+Push 0.0
+Greater
+Not
+If loc2457
+Push undefined
+Return
+loc2457:Push register1, "upObject", register2
+SetMember
+Push "ModeSettings"
+GetVariable
+Push "arcadeMode"
+GetMember
+Not
+If loc2485
+Push register1, "upTickTotal", 16
+SetMember
+Jump loc24e5
+loc2485:Push register1, "towerType"
+GetMember
+Push 8
+Equals2
+Not
+If loc24ae
+Push register1, "upTickTotal", 144
+SetMember
+Jump loc24e5
+loc24ae:Push register1, "upTickTotal", 2, 0.0, register1, "__get__level"
+CallMethod
+Push 1
+Subtract
+Push 4
+Multiply
+Add2
+Push 24
+Multiply
+SetMember
+loc24e5:Push register1, "upTicks", register1, "upTickTotal"
+GetMember
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_visible", true
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_width", 0.0
+SetMember
+Push register1, "turret"
+GetMember
+Push "_visible", false
+SetMember
+Push 0.0, register1, "boost"
+GetMember
+Push "Get"
+CallMethod
+Push 0.0
+Greater
+Not
+If loc2571
+Push 0.0, register1, "RemoveBoost"
+CallMethod
+Pop
+loc2571:Push register1, "FrameTick", register1, "UpgradeTick"
+GetMember
+SetMember
+}
+SetMember
+Push register2, "SellTick"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "selectFade"
+GetMember
+Push 0.0
+Equals2
+Not
+Not
+If loc25bf
+Push 0.0, register1, "FadeSelect"
+CallMethod
+Pop
+loc25bf:Push register1, "sellTicks", register1, "sellTicks"
+GetMember
+Decrement
+StoreRegister 0
+SetMember
+Push register0, 0.0
+Equals2
+Not
+If loc2606
+Push register1, 1, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "SellTower"
+CallMethod
+Pop
+Push false
+Return
+loc2606:Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_width", register1, "sellTicks"
+GetMember
+Push register1, "sellTickTotal"
+GetMember
+Divide
+Push 20
+Multiply
+SetMember
+Push true
+Return
+}
+SetMember
+Push register2, "UpgradeTick"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "selectFade"
+GetMember
+Push 0.0
+Equals2
+Not
+Not
+If loc2678
+Push 0.0, register1, "FadeSelect"
+CallMethod
+Pop
+loc2678:Push register1, "upTicks", register1, "upTicks"
+GetMember
+Decrement
+StoreRegister 0
+SetMember
+Push register0, 0.0
+Equals2
+Not
+If loc26b6
+Push 0.0, register1, "ApplyUpgrade"
+CallMethod
+Pop
+Jump loc26e7
+loc26b6:Push register1, "tgroup"
+GetMember
+Push "upgradeBar"
+GetMember
+Push "_width", 1, register1, "upTicks"
+GetMember
+Push register1, "upTickTotal"
+GetMember
+Divide
+Subtract
+Push 20
+Multiply
+SetMember
+loc26e7:Push true
+Return
+}
+SetMember
+Push register2, "BoostTick"
+DefineFunction "", 0 {
+Push true
+Return
+}
+SetMember
+Push register2, "Fire"
+DefineFunction2 "", 0, 7, false, false, true, false, true, false, false, true, false {
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "creeps"
+GetMember
+StoreRegister 3
+Pop
+Push "Fire! ", register3, "length"
+GetMember
+Add2
+Trace
+Push register1, "firing"
+GetMember
+Not
+Not
+If loc2819
+Push register1, "targets", 0.0
+InitArray
+SetMember
+Push register3
+Enumerate2
+loc2766:StoreRegister 0
+Push null
+Equals2
+If loc2802
+Push register0
+StoreRegister 6
+Pop
+Push register3, register6
+GetMember
+StoreRegister 2
+Pop
+Push register2, "shotHealth"
+GetMember
+Push 0.0
+Greater
+Not
+If loc27fd
+Push register2, 1, register1, "InRange"
+CallMethod
+Not
+If loc27fd
+Push register2, "_x"
+GetMember
+Push register1, "_x"
+GetMember
+Subtract
+StoreRegister 5
+Pop
+Push register2, "_y"
+GetMember
+Push register1, "_y"
+GetMember
+Subtract
+StoreRegister 4
+Pop
+Push register2, 1, register1, "targets"
+GetMember
+Push "push"
+CallMethod
+Pop
+loc27fd:Jump loc2766
+loc2802:Push register1, "FrameTick", register1, "FireTick2"
+GetMember
+SetMember
+Push register1, "firing", true
+SetMember
+}
+loc2819:SetMember
+Push register2, "FireTick2"
+DefineFunction2 "", 0, 4, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "__get__level"
+CallMethod
+Push 4
+Multiply
+StoreRegister 3
+Pop
+loc284b:Push register3, register3
+Decrement
+StoreRegister 3
+Pop
+Push 0.0
+Greater
+PushDuplicate
+Not
+If loc2888
+Pop
+Push register1, "targets"
+GetMember
+Push "length"
+GetMember
+Push 0.0
+Greater
+loc2888:Not
+If loc290c
+Push "CreepClass"
+GetVariable
+Push 0.0, register1, "targets"
+GetMember
+Push "pop"
+CallMethod
+CastOp
+StoreRegister 2
+Pop
+Push register2, "shotHealth"
+GetMember
+Push 0.0
+Greater
+Not
+If loc2907
+Push register3, 0.0
+Equals2
+Push register1, "_y"
+GetMember
+Push register1, "_x"
+GetMember
+Push register2, register1, 5, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "AddShot"
+CallMethod
+Pop
+loc2907:Jump loc284b
+loc290c:Push register1, "targets"
+GetMember
+Push "length"
+GetMember
+Push 0.0
+Greater
+Not
+If loc2933
+Push true
+Return
+loc2933:Push register1, 1, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "RemoveTower"
+CallMethod
+Pop
+Push false
+Return
+}
+SetMember
+Push register2, "FireTick"
+DefineFunction "", 0 {
+Push true
+Return
+}
+SetMember
+Push register2, "AirTick"
+DefineFunction2 "", 0, 5, false, false, true, false, true, false, false, true, false {
+Push register1, "shotTick", register1, "shotTick"
+GetMember
+Decrement
+SetMember
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "flyingCreeps"
+GetMember
+Not
+If loc2c12
+Push register1, "shotTick"
+GetMember
+Push 0.0
+Less2
+Not
+If loc2c12
+Push 0.0
+StoreRegister 2
+Pop
+Push 0.0
+InitArray
+StoreRegister 4
+Pop
+loc29e6:Push register2, register1, "targets"
+GetMember
+Push "length"
+GetMember
+Less2
+Not
+If loc2a6b
+Push register1, "targets"
+GetMember
+Push register2
+GetMember
+Push 1, register1, "TargetValid"
+CallMethod
+Not
+If loc2a5b
+Push register1, "targets"
+GetMember
+Push register2
+GetMember
+Push 1, register1, "InRange"
+CallMethod
+Not
+If loc2a5b
+Push register1, "targets"
+GetMember
+Push register2
+GetMember
+Push 1, register4, "push"
+CallMethod
+Pop
+loc2a5b:Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc29e6
+loc2a6b:Push register1, "targets", register4
+SetMember
+Push register1, "targets"
+GetMember
+Push "length"
+GetMember
+Push 4
+Less2
+Not
+If loc2acb
+Push register1, "targets", 4, register1, "targets"
+GetMember
+Push "length"
+GetMember
+Subtract
+Push 1, register1, "AcquireTarget"
+CallMethod
+Push 1, register1, "targets"
+GetMember
+Push "concat"
+CallMethod
+SetMember
+loc2acb:Push register1, "_y"
+GetMember
+Push 7
+Subtract
+Push register1, "_x"
+GetMember
+Push 2
+InitArray
+Push register1, "_y"
+GetMember
+Push 7
+Add2
+Push register1, "_x"
+GetMember
+Push 2
+InitArray
+Push register1, "_y"
+GetMember
+Push register1, "_x"
+GetMember
+Push 7
+Add2
+Push 2
+InitArray
+Push register1, "_y"
+GetMember
+Push register1, "_x"
+GetMember
+Push 7
+Subtract
+Push 2
+InitArray
+Push 4
+InitArray
+StoreRegister 3
+Pop
+Push 0.0
+StoreRegister 2
+Pop
+loc2b72:Push register2, register1, "targets"
+GetMember
+Push "length"
+GetMember
+Less2
+Not
+If loc2bf6
+Push register2, 0.0
+Equals2
+Push register3, register2
+GetMember
+Push 1
+GetMember
+Push register3, register2
+GetMember
+Push 0.0
+GetMember
+Push register1, "targets"
+GetMember
+Push register2
+GetMember
+Push register1, 5, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "AddShot"
+CallMethod
+Pop
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc2b72
+loc2bf6:Push register1, "shotTick", 0.0, register1, "hitRate"
+GetMember
+Push "Get"
+CallMethod
+SetMember
+loc2c12:Push true
+Return
+}
+SetMember
+Push register2, "NormalTick"
+DefineFunction2 "", 0, 3, false, false, true, false, true, false, false, true, false {
+Push register1, "dragged"
+GetMember
+Not
+If loc2c3f
+Push true
+Return
+loc2c3f:Push register1, "selectFade"
+GetMember
+Push 0.0
+Equals2
+Not
+Not
+If loc2c6d
+Push 0.0, register1, "FadeSelect"
+CallMethod
+Pop
+loc2c6d:Push register1, "shotTick", register1, "shotTick"
+GetMember
+Decrement
+SetMember
+Push "", register1, "target"
+GetMember
+Add2
+Push ""
+Equals2
+Not
+If loc2c9b
+Push register1, "target", undefined
+SetMember
+loc2c9b:Push register1, "target"
+GetMember
+PushDuplicate
+Not
+If loc2cc0
+Pop
+Push register1, "shotTick"
+GetMember
+Push 0.0
+Less2
+loc2cc0:Not
+If loc2e11
+Push register1, "target"
+GetMember
+Push 1, register1, "TargetValid"
+CallMethod
+Not
+If loc2e08
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "gridRatio"
+GetMember
+StoreRegister 2
+Pop
+Push register1, "range2", 0.0, register1, "range"
+GetMember
+Push "Get"
+CallMethod
+Push register2
+Multiply
+SetMember
+Push register1, "minRange2", 0.0, register1, "minRange"
+GetMember
+Push "Get"
+CallMethod
+Push register2
+Multiply
+SetMember
+Push register1, "target"
+GetMember
+Push 1, register1, "InRange"
+CallMethod
+Not
+If loc2dfa
+Push register1, "shotTick", 0.0, register1, "hitRate"
+GetMember
+Push "Get"
+CallMethod
+SetMember
+Push register1, "towerType"
+GetMember
+Push 6
+Equals2
+Not
+If loc2dc1
+Push true, register1, "_y"
+GetMember
+Push register1, "_x"
+GetMember
+Push register1, 4, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "AddGroundShot"
+CallMethod
+Pop
+Jump loc2df5
+loc2dc1:Push true, register1, "_y"
+GetMember
+Push register1, "_x"
+GetMember
+Push register1, "target"
+GetMember
+Push register1, 5, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "AddShot"
+CallMethod
+Pop
+loc2df5:Jump loc2e03
+loc2dfa:Push register1, "target", undefined
+SetMember
+loc2e03:Jump loc2e11
+loc2e08:Push register1, "target", undefined
+SetMember
+loc2e11:Push register1, "rotating"
+GetMember
+Not
+If loc2e31
+Push 0.0, register1, "Rotate"
+CallMethod
+Pop
+loc2e31:Push register1, "towerType"
+GetMember
+Push 7
+Equals2
+Not
+If loc2e51
+Push register1, "target", undefined
+SetMember
+loc2e51:Push true
+Return
+}
+SetMember
+Push register2, "Rotate"
+DefineFunction2 "", 0, 5, false, false, true, false, true, false, false, true, false {
+Push register1, "target"
+GetMember
+Not
+If loc2f17
+Push register1, "target"
+GetMember
+Push "_x"
+GetMember
+Push register1, "_x"
+GetMember
+Subtract
+StoreRegister 3
+Pop
+Push register1, "target"
+GetMember
+Push "_y"
+GetMember
+Push register1, "_y"
+GetMember
+Subtract
+StoreRegister 2
+Pop
+Push register3, register2, 2, "Math"
+GetVariable
+Push "atan2"
+CallMethod
+Push 180
+Multiply
+Push 3.141592653589793
+Divide
+Push 1, "Math"
+GetVariable
+Push "round"
+CallMethod
+StoreRegister 4
+Pop
+Push register1, "targetAngle", register4
+SetMember
+Push register1, "targetAngle"
+GetMember
+Push 1, register1, "bturret"
+GetMember
+Push "__set__rotation"
+CallMethod
+Pop
+}
+loc2f17:SetMember
+Push register2, "InRange"
+DefineFunction2 "", 1, 7, false, false, true, false, true, false, false, true, false, 6, "c" {
+Push register1, "_x"
+GetMember
+Push register6, "_x"
+GetMember
+Subtract
+StoreRegister 3
+Pop
+Push register1, "_y"
+GetMember
+Push register6, "_y"
+GetMember
+Subtract
+StoreRegister 2
+Pop
+Push register3, register3
+Multiply
+Push register2, register2
+Multiply
+Add2
+StoreRegister 5
+Pop
+Push undefined
+StoreRegister 4
+Pop
+Push register5, register1, "range2"
+GetMember
+Push register1, "range2"
+GetMember
+Multiply
+Less2
+Not
+If loc2fdc
+Push register1, "minRange2"
+GetMember
+Push 0.0
+Greater
+Not
+If loc2fcc
+Push register5, register1, "minRange2"
+GetMember
+Push register1, "minRange2"
+GetMember
+Multiply
+Less2
+Not
+StoreRegister 4
+Pop
+Jump loc2fd6
+loc2fcc:Push true
+StoreRegister 4
+Pop
+loc2fd6:Push register4
+Return
+loc2fdc:Push false
+Return
+}
+SetMember
+Push register2, "SetTint"
+DefineFunction2 "", 4, 9, false, false, true, false, true, false, false, true, false, 7, "r", 8, "g", 6, "b", 5, "amount" {
+Push 0.0, "Object"
+NewObject
+StoreRegister 2
+Pop
+Push register2, "ra", register2, "ga", register2, "ba", 100, register5
+Subtract
+StoreRegister 0
+SetMember
+Push register0
+StoreRegister 0
+SetMember
+Push register0
+SetMember
+Push register5, 100
+Divide
+StoreRegister 3
+Pop
+Push register2, "rb", register7, register3
+Multiply
+SetMember
+Push register2, "gb", register8, register3
+Multiply
+SetMember
+Push register2, "bb", register6, register3
+Multiply
+SetMember
+Push register1, "tgroup"
+GetMember
+Push "pips"
+GetMember
+Push 1, "Color"
+NewObject
+StoreRegister 4
+Pop
+Push register2, 1, register4, "setTransform"
+CallMethod
+Pop
+Push register4
+Return
+}
+SetMember
+Push register2, "HEXtoRGB"
+DefineFunction2 "", 1, 6, false, false, true, false, true, false, true, false, false, 2, "hex" {
+Push register2, 1, "isNaN"
+CallFunction
+If loc30e5
+Push register2
+Jump loc30f7
+loc30e5:Push 16, register2, 2, "parseInt"
+CallFunction
+loc30f7:StoreRegister 1
+Pop
+Push register1, 16
+BitRShift
+StoreRegister 4
+Pop
+Push register1, register4, 16
+BitLShift
+BitXor
+Push 8
+BitRShift
+StoreRegister 5
+Pop
+Push register1, register4, 16
+BitLShift
+BitXor
+Push register5, 8
+BitLShift
+BitXor
+StoreRegister 3
+Pop
+Push "r", register4, "g", register5, "b", register3, 3
+InitObject
+Return
+}
+SetMember
+Push register2, "__set__level"
+GetMember
+Push register2, "__get__level"
+GetMember
+Push "level", 3, register2, "addProperty"
+CallMethod
+Push 1, null, "_global"
+GetVariable
+Push "Tower"
+GetMember
+Push "prototype"
+GetMember
+Push 3, "ASSetPropFlags"
+CallFunction
+loc31a0:Pop
