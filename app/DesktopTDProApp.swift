@@ -27,6 +27,7 @@ struct RootView: View {
             .confirmationDialog("Game settings", isPresented: $choosingIcon, titleVisibility: .visible) {
                 Button("Save Sandbox checkpoint") { game.command("save") }
                 Button("Load Sandbox checkpoint") { game.command("load") }
+                Button(game.magnifierVisible ? "Hide map magnifier" : "Show map magnifier") { game.setMagnifier(!game.magnifierVisible) }
                 Button("Red icon (default)") { setIcon(nil) }
                 Button("Purple icon") { setIcon("PurpleIcon") }
                 Button("Cancel", role: .cancel) {}
@@ -73,7 +74,7 @@ final class LocalServer {
             let url = allowed ? base?.appendingPathComponent(name) : nil
             let payload = url.flatMap { try? Data(contentsOf: $0) }
             let type: String
-            switch url?.pathExtension { case "html": type = "text/html; charset=utf-8"; case "js": type = "text/javascript"; case "wasm": type = "application/wasm"; case "png": type = "image/png"; case "swf": type = "application/x-shockwave-flash"; default: type = "application/octet-stream" }
+            switch url?.pathExtension { case "html": type = "text/html; charset=utf-8"; case "js": type = "text/javascript; charset=utf-8"; case "wasm": type = "application/wasm"; case "png": type = "image/png"; case "swf": type = "application/x-shockwave-flash"; default: type = "application/octet-stream" }
             let body = payload ?? Data("Not found".utf8)
             let header = "HTTP/1.1 \(payload == nil ? "404 Not Found" : "200 OK")\r\nContent-Type: \(type)\r\nContent-Length: \(body.count)\r\nCache-Control: no-store\r\nConnection: close\r\n\r\n"
             var response = Data(header.utf8); response.append(body)
@@ -85,6 +86,14 @@ final class GameController: ObservableObject {
     weak var webView: WKWebView?
     @Published var message: String?
     @Published var isPlaying = false
+    @Published var magnifierVisible = false
+    func setMagnifier(_ visible: Bool) {
+        guard let webView = webView else { message = "The game is still loading."; return }
+        let action = visible ? "show" : "hide"
+        webView.evaluateJavaScript("window.wireMagnifierCommand ? window.wireMagnifierCommand('\(action)') : false") { [weak self] result, _ in
+            DispatchQueue.main.async { if (result as? Bool) == true { self?.magnifierVisible = visible } }
+        }
+    }
     func command(_ command: String) {
         guard let webView = webView else { message = "The game is still loading."; return }
         webView.evaluateJavaScript("window.wireCheckpointCommand ? window.wireCheckpointCommand('\(command)') : 'The game is still loading.'") { [weak self] result, error in
@@ -114,6 +123,7 @@ struct GameView: UIViewRepresentable {
             if let body = message.body as? [String: String] {
                 if let status = body["checkpoint"] { controller?.message = status }
                 if let screen = body["screen"] { controller?.isPlaying = (screen == "game") }
+                if let magnifier = body["magnifier"] { controller?.magnifierVisible = (magnifier == "shown") }
             }
         }
         let server = LocalServer()

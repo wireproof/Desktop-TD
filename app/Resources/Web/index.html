@@ -1,7 +1,7 @@
 <!doctype html>
-<html><head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; frame-src 'none'">
-<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151b18;touch-action:none}body{display:flex;align-items:center;justify-content:center;padding:0}#game{flex:none;width:100%;height:100%;background:#111;touch-action:none}ruffle-player{width:100%;height:100%;display:block;touch-action:none}#tower-economy{display:none;position:fixed;z-index:19;pointer-events:none;color:#fff;background:rgba(0,0,0,.88);text-align:center;white-space:nowrap;overflow:hidden;border-radius:3px;font-family:system-ui,sans-serif;font-weight:600}#tower-drag-preview{display:none;position:fixed;z-index:20;pointer-events:none;opacity:.8;transform:translate(-50%,-50%)}#message{position:absolute;bottom:5px;color:#ddd;font:12px system-ui;pointer-events:none}</style><script src="ruffle.js"></script></head>
+<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151b18;touch-action:none}body{display:flex;align-items:center;justify-content:center;padding:0}#game{flex:none;width:100%;height:100%;background:#111;touch-action:none}ruffle-player{width:100%;height:100%;display:block;touch-action:none}#map-magnifier{display:none;position:fixed;left:2%;top:9%;width:clamp(155px,34vw,300px);z-index:30;background:#111;border:2px solid #ffc229;border-radius:7px;box-shadow:0 3px 14px #0009;overflow:hidden;color:#fff;font:600 12px system-ui,sans-serif}#map-magnifier header{display:flex;align-items:center;gap:3px;min-height:30px;padding:2px 4px;background:#242424;touch-action:none;cursor:move}#map-magnifier header span{flex:1;padding-left:3px}#map-magnifier button{width:30px;height:28px;border:0;border-radius:3px;background:#ffc229;color:#111;font:bold 18px system-ui}#map-magnifier canvas{display:block;width:100%;aspect-ratio:3/2;touch-action:none;cursor:crosshair}#map-magnifier .magnifier-hint{font-size:10px;font-weight:400;text-align:center;padding:3px;background:#242424}#tower-economy{display:none;position:fixed;z-index:19;pointer-events:none;color:#fff;background:rgba(0,0,0,.88);text-align:center;white-space:nowrap;overflow:hidden;border-radius:3px;font-family:system-ui,sans-serif;font-weight:600}#tower-drag-preview{display:none;position:fixed;z-index:20;pointer-events:none;opacity:.8;transform:translate(-50%,-50%)}#message{position:absolute;bottom:5px;color:#ddd;font:12px system-ui;pointer-events:none}</style><script src="ruffle.js"></script><script src="magnifier.js"></script></head>
 <body><div id="tower-economy"></div><img id="tower-drag-preview" alt="" draggable="false"><div id="game"></div><div id="message">Loading Desktop TD…</div><script>
 function enableDrag(player) {
   let gesture = null, actionGesture = null;
@@ -69,7 +69,7 @@ function enableDrag(player) {
     const from=gesture; gesture=null; hidePreview(); const point={x:e.clientX,y:e.clientY};
     const x=(point.x-from.r.left)/from.r.width,y=(point.y-from.r.top)/from.r.height;
     if(!from.selected) return;
-    if(x<.05 || x>.68 || y<.10 || y>.85) { if(from.preview && typeof player.wireCancelTower === 'function') player.wireCancelTower(); return; }
+    if(x<.015 || x>.68 || y<.075 || y>.87) { if(from.preview && typeof player.wireCancelTower === 'function') player.wireCancelTower(); return; }
     // The game's grid places on mouse down; the real pointer is still active
     // while this capture handler runs. The actual release follows naturally.
     if (from.type !== 'touch' && from.towerType && typeof player.wirePlaceTower === 'function') { player.wirePlaceTower(from.towerType,x*700,y*500); return; }
@@ -77,7 +77,7 @@ function enableDrag(player) {
   },true);
 }
 window.addEventListener('load',async()=>{try{
-  let p=window.RufflePlayer.newest().createPlayer();document.querySelector('#game').appendChild(p);enableDrag(p);
+  let p=window.RufflePlayer.newest().createPlayer();document.querySelector('#game').appendChild(p);enableDrag(p);installMapMagnifier(p);
   await p.ruffle().load({url:'game.swf',autoplay:'on',unmuteOverlay:'visible',allowNetworking:'all',allowScriptAccess:true,openUrlMode:'deny',scale:'exactFit',forceScale:true,letterbox:'off'});
   window.wireCheckpointCommand = function(command) {
     const method = command === 'save' ? 'wireSaveCheckpoint' : 'wireLoadCheckpoint';

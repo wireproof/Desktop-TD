@@ -236,9 +236,9 @@ Not
 If loc0aef
 Push register3, 4
 Subtract
-Push 2
+Push 3
 Multiply
-Push register2, 2
+Push register2, 3
 Multiply
 Push 180, 3, register1, "bturret"
 GetMember
@@ -319,9 +319,9 @@ Add2
 Push register2
 Add2
 Trace
-Push register3, 2
+Push register3, 3
 Multiply
-Push register2, 2
+Push register2, 3
 Multiply
 Push 180, 3, register1, "bturret"
 GetMember
@@ -352,11 +352,11 @@ CallMethod
 Pop
 Push register1, "turret"
 GetMember
-Push "_xscale", 50
+Push "_xscale", 33.333333333333336
 SetMember
 Push register1, "turret"
 GetMember
-Push "_yscale", 50
+Push "_yscale", 33.333333333333336
 SetMember
 Push register1, "turret"
 GetMember

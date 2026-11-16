@@ -1,0 +1,3564 @@
+ConstantPool "_global", "GameInfo", "game", "Game", "me", "gameData", "GameData", "groundField", "createEmptyMovieClip", "towerField", "creepField", "shotField", "effectsField", "bountyField", "creeps", "creepCount", "towers", "expLevel", "prototype", "Init", "GameInfo.Init", "InitMap", "InitLevels", "Destroy", "ClearShots", "ClearCreeps", "ClearEffects", "ClearTowers", "removeMovieClip", "CanBuy", "buy", "this", "gameState", "ModeSettings", "noBuy", "__get__maxTowers", "length", "CanBuy:", "tnum", "GameGUI", "mainInterface", "sideBar", "towerPanel", "btnPellet", "_visible", "btnDart", "btnSquirt", "btnSwarm", "btnFrost", "btnBash", "btnInk", "btnSnap", "btnBoost", "CanUpgrade", "noUpgrade", "CanSell", "noSell", "SelectMPW", "CancelSelect", "__get__infoPanel", "SetMPW", "AddTower", "getNextHighestDepth", "GetTowerPrototype", "id", "level", "towerName", "desc", "info", "cost", "SecNum", "towerType", "hitRate", "range", "minRange", "rangeType", "damage", "boost", "duration", "hits", "splash", "slow", "bash", "stun", "rotating", "dragged", "tower", "Tower2", "attachMovie", "grid", "FollowTower", "SetTower", "towerString", "__get__level", "topLeftCell", "col", "GameUtils", "PadNumber", "row", "A", "concat", "TowerUpgraded", "U", "select", "SelectTower", "MPMode", "TowerRemoved", "R", "GameMP", "SellTower", "AddSmoke", "fxQuality", "fragType", "_x", "_y", "_rotation", "rate", "ticks", "fragment", "Fragment", "AddExplosion", "bop.wav", "PlaySound", "Math", "random", "xVel", "yVel", "dx", "dy", "rotate", "deaccel", "ModifyTowerRangeBox", "cells", "range2", "gridSize", "ceil", "left", "top", "push", "minRange2", "sqrt", "mrange", "AddRangeTower", "RemoveRangeTower", "ModifyTowerRangeBox2", "AssignTowerTargets", "fcount", "flyingCreeps", "entering", "flying", "nc", "startY", "startX", "cCell", "targetFrame", "rangeTowers", "target", "TargetValid", "partial", "AddKill", "bounty", "num", "Bounty", "LoseALife", "SetSkin", "AddSpawnCreeps", "decoy", "LR", "nextY", "nextX", "startHealth", "cellRows", "cellCols", "moveCostLR", "moveCostUD", "SPAWNLET", "speed", "gameInfo", "gridRatio", "DECOY", "endCell", "name", "spawnMax", "spawnLevel", "startDelay", "startCell", "size", "health", "resist", "immune", "color", "swapPos", "creep", "Creep", "DoExplode", "AddWave", "getDepth", "modeNum", "boss", "group", "survivor", "28", "PRNG", "rndSeed", "Get", "SetSeed", "count", "mapConfig", "openingEndRow", "openingStartRow", "nextIntRange", "midCol", "delay", "spawn", "morph", "hopper", "sprinter", "openingEndCol", "openingStartCol", "midRow", "trickleChal", "newLevelTick", "DynamicText", "SetTowerLanguage", "InitMap:", "mapSize", "SetMap", "CreateCellArray", "endX", "endY", "GetMapString", "v1:", ":", "TraceCells", "", "Array", "Cell", "barrier", "endCellsLR", "endCellsUD", "startCellLR", "startCellUD", "isStart", "isExit", "startCellLR2", "startCellUD2", "mapMode", "DrawGrid", "shots", "ASSetPropFlags"
+Push "_global"
+GetVariable
+Push "GameInfo"
+GetMember
+Not
+Not
+If loc42d2
+Push "_global"
+GetVariable
+Push "GameInfo"
+DefineFunction2 "", 0, 3, false, true, true, false, true, false, false, true, false {
+Push register1, "game", "Game"
+GetVariable
+Push "me"
+GetMember
+SetMember
+Push register1, "gameData", 0.0, "GameData"
+NewObject
+SetMember
+Push register1, "groundField", 1, "groundField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "towerField", 2, "towerField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "creepField", 3, "creepField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "shotField", 4, "shotField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "effectsField", 6, "effectsField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "bountyField", 7, "bountyField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "creeps", 0.0
+InitArray
+SetMember
+Push register1, "creepCount", 0.0
+SetMember
+Push register1, "towers", 0.0
+InitArray
+SetMember
+Push register1, "expLevel", 0.0
+SetMember
+}
+StoreRegister 1
+SetMember
+Push register1, "prototype"
+GetMember
+StoreRegister 2
+Pop
+Push register2, "Init"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push "GameInfo.Init"
+Trace
+Push 0.0, register1, "InitMap"
+CallMethod
+Pop
+Push 0.0, register1, "gameData"
+GetMember
+Push "InitLevels"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "Destroy"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push 0.0, register1, "ClearShots"
+CallMethod
+Pop
+Push 0.0, register1, "ClearCreeps"
+CallMethod
+Pop
+Push 0.0, register1, "ClearEffects"
+CallMethod
+Pop
+Push 0.0, register1, "ClearTowers"
+CallMethod
+Pop
+Push register1, "groundField"
+GetMember
+Not
+If loc0a7d
+Push 0.0, register1, "groundField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0a7d:Push register1, "towerField"
+GetMember
+Not
+If loc0aa3
+Push 0.0, register1, "towerField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0aa3:Push register1, "creepField"
+GetMember
+Not
+If loc0ac9
+Push 0.0, register1, "creepField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0ac9:Push register1, "shotField"
+GetMember
+Not
+If loc0aef
+Push 0.0, register1, "shotField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0aef:Push register1, "effectsField"
+GetMember
+Not
+If loc0b15
+Push 0.0, register1, "effectsField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0b15:Push register1, "groundField"
+GetMember
+Not
+If loc0b3b
+Push 0.0, register1, "groundField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0b3b:Push register1, "bountyField"
+GetMember
+Not
+If loc0b61
+Push 0.0, register1, "bountyField"
+GetMember
+Push "removeMovieClip"
+CallMethod
+Pop
+loc0b61:Push 0.0, register1, "gameData"
+GetMember
+Push "Destroy"
+CallMethod
+Pop
+Push register1, "game", undefined
+SetMember
+Push register1, "gameData", undefined
+SetMember
+}
+SetMember
+Push register2, "CanBuy"
+DefineFunction "", 1, "tnum"  {
+Push "buy", false
+DefineLocal
+Push "this"
+GetVariable
+Push "game"
+GetMember
+Push "gameState"
+GetMember
+Push -1
+Equals2
+PushDuplicate
+If loc0be5
+Pop
+Push "this"
+GetVariable
+Push "game"
+GetMember
+Push "gameState"
+GetMember
+Push 1
+Greater
+loc0be5:Not
+If loc0bf1
+Push false
+Return
+loc0bf1:Push "ModeSettings"
+GetVariable
+Push "noBuy"
+GetMember
+PushDuplicate
+Not
+If loc0c24
+Pop
+Push "this"
+GetVariable
+Push "game"
+GetMember
+Push "gameState"
+GetMember
+Push 0.0
+Greater
+loc0c24:Not
+If loc0c30
+Push false
+Return
+loc0c30:Push 0.0, "ModeSettings"
+GetVariable
+Push "__get__maxTowers"
+CallMethod
+Push 0.0
+Greater
+Not
+If loc0c8d
+Push "this"
+GetVariable
+Push "towers"
+GetMember
+Push "length"
+GetMember
+Push 0.0, "ModeSettings"
+GetVariable
+Push "__get__maxTowers"
+CallMethod
+Less2
+Not
+Not
+If loc0c8d
+Push false
+Return
+loc0c8d:Push "CanBuy:", "tnum"
+GetVariable
+Add2
+Trace
+Push "GameGUI"
+GetVariable
+Push "mainInterface"
+GetMember
+Push "sideBar"
+GetMember
+Push "towerPanel"
+GetMember
+With {
+Push "tnum"
+GetVariable
+StoreRegister 0
+Push 1
+StrictEquals
+If loc0d51
+Push register0, 2
+StrictEquals
+If loc0d65
+Push register0, 3
+StrictEquals
+If loc0d79
+Push register0, 4
+StrictEquals
+If loc0d8d
+Push register0, 5
+StrictEquals
+If loc0da1
+Push register0, 6
+StrictEquals
+If loc0db5
+Push register0, 7
+StrictEquals
+If loc0dc9
+Push register0, 8
+StrictEquals
+If loc0ddd
+Push register0, 9
+StrictEquals
+If loc0df1
+Jump loc0e05
+loc0d51:Push "buy", "btnPellet"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0d65:Push "buy", "btnDart"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0d79:Push "buy", "btnSquirt"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0d8d:Push "buy", "btnSwarm"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0da1:Push "buy", "btnFrost"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0db5:Push "buy", "btnBash"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0dc9:Push "buy", "btnInk"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0ddd:Push "buy", "btnSnap"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0df1:Push "buy", "btnBoost"
+GetVariable
+Push "_visible"
+GetMember
+SetVariable
+Jump loc0e0d
+loc0e05:Push "buy", false
+SetVariable
+}
+loc0e0d:Push "buy"
+GetVariable
+PushDuplicate
+Not
+If loc0e4e
+Pop
+Push "ModeSettings"
+GetVariable
+Push "noBuy"
+GetMember
+Not
+PushDuplicate
+If loc0e4e
+Pop
+Push "this"
+GetVariable
+Push "game"
+GetMember
+Push "gameState"
+GetMember
+Push 0.0
+Equals2
+loc0e4e:Return
+}
+SetMember
+Push register2, "CanUpgrade"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push "ModeSettings"
+GetVariable
+Push "noUpgrade"
+GetMember
+Not
+PushDuplicate
+If loc0e91
+Pop
+Push register1, "game"
+GetMember
+Push "gameState"
+GetMember
+Push 0.0
+Equals2
+loc0e91:Return
+}
+SetMember
+Push register2, "CanSell"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push "ModeSettings"
+GetVariable
+Push "noSell"
+GetMember
+Not
+PushDuplicate
+If loc0ed4
+Pop
+Push register1, "game"
+GetMember
+Push "gameState"
+GetMember
+Push 0.0
+Equals2
+loc0ed4:Return
+}
+SetMember
+Push register2, "SelectMPW"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "wo" {
+Push 0.0, register1, "game"
+GetMember
+Push "CancelSelect"
+CallMethod
+Pop
+Push register2, 1, 0.0, "GameGUI"
+GetVariable
+Push "__get__infoPanel"
+CallMethod
+Push "SetMPW"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "AddTower"
+DefineFunction2 "", 3, 28, false, false, true, false, true, false, false, true, false, 27, "type", 19, "drag", 11, "level" {
+Push 0.0, register1, "towerField"
+GetMember
+Push "getNextHighestDepth"
+CallMethod
+StoreRegister 4
+Pop
+Push undefined
+StoreRegister 3
+Pop
+Push register11, undefined
+Equals2
+Not
+If loc0f8c
+Push 1
+StoreRegister 11
+Pop
+loc0f8c:Push register11, register27, 2, register1, "GetTowerPrototype"
+CallMethod
+StoreRegister 2
+Pop
+Push 0.0, register1, "game"
+GetMember
+Push "CancelSelect"
+CallMethod
+Pop
+Push register4, 0.0
+Equals2
+Not
+If loc0fdc
+Push 1
+StoreRegister 4
+Pop
+loc0fdc:Push "id", register4, "level", register2, "level"
+GetMember
+Push "towerName", register2, "towerName"
+GetMember
+Push "desc", register2, "desc"
+GetMember
+Push "info", register2, "info"
+GetMember
+Push "cost", register2, "cost"
+GetMember
+ToInteger
+Push 1, "SecNum"
+NewObject
+Push "towerType", register2, "towerType"
+GetMember
+Push "hitRate", register2, "hitRate"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "range", register2, "range"
+GetMember
+ToInteger
+Push 1, "SecNum"
+NewObject
+Push "minRange", register2, "minRange"
+GetMember
+ToInteger
+Push 1, "SecNum"
+NewObject
+Push "rangeType", register2, "rangeType"
+GetMember
+Push "damage", register2, "damage"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "boost", register2, "boost"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "duration", register2, "duration"
+GetMember
+Push "hits", register2, "hits"
+GetMember
+Push "splash", register2, "splash"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "slow", register2, "slow"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "bash", register2, "bash"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "stun", register2, "stun"
+GetMember
+Push 1, "SecNum"
+NewObject
+Push "rotating", register2, "rotating"
+GetMember
+Push "dragged", register19, 21
+InitObject
+Push register4, "tower", register4
+Add2
+Push "Tower2", 4, register1, "towerField"
+GetMember
+Push "attachMovie"
+CallMethod
+Pop
+Push register1, "towerField"
+GetMember
+Push "tower", register4
+Add2
+GetMember
+StoreRegister 3
+Pop
+Push register19
+Not
+If loc1177
+Push register3, 1, "GameGUI"
+GetVariable
+Push "grid"
+GetMember
+Push "FollowTower"
+CallMethod
+Pop
+loc1177:Push register3, 1, 0.0, "GameGUI"
+GetVariable
+Push "__get__infoPanel"
+CallMethod
+Push "SetTower"
+CallMethod
+Pop
+Push register1, "towerString", 0.0, register3, "__get__level"
+CallMethod
+Push register3, "towerType"
+GetMember
+Push 2, register3, "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 2, register3, "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push "A", 5, register1, "towerString"
+GetMember
+Push "concat"
+CallMethod
+SetMember
+Push register3
+Return
+}
+SetMember
+Push register2, "TowerUpgraded"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "t" {
+Push register1, "towerString", 0.0, register2, "__get__level"
+CallMethod
+Push register2, "towerType"
+GetMember
+Push 2, register2, "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 2, register2, "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push "U", 5, register1, "towerString"
+GetMember
+Push "concat"
+CallMethod
+SetMember
+Push register2, "select"
+GetMember
+Not
+If loc12d0
+Push register2, 1, register1, "game"
+GetMember
+Push "SelectTower"
+CallMethod
+Pop
+loc12d0:Push "ModeSettings"
+GetVariable
+Push "MPMode"
+GetMember
+Not
+If loc12e2
+}
+loc12e2:SetMember
+Push register2, "TowerRemoved"
+DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "t" {
+Push register1, "towerString", 0.0, register2, "__get__level"
+CallMethod
+Push register2, "towerType"
+GetMember
+Push 2, register2, "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 2, register2, "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push "R", 5, register1, "towerString"
+GetMember
+Push "concat"
+CallMethod
+SetMember
+Push "ModeSettings"
+GetVariable
+Push "MPMode"
+GetMember
+Not
+If loc1399
+Push register2, 1, "GameMP"
+GetVariable
+Push "SellTower"
+CallMethod
+Pop
+}
+loc1399:SetMember
+Push register2, "AddSmoke"
+DefineFunction2 "", 4, 11, false, false, true, false, true, false, false, true, false, 0, "type", 9, "posX", 8, "posY", 10, "rotate" {
+Push "GameMP"
+GetVariable
+Push "fxQuality"
+GetMember
+Push 3
+Less2
+Not
+If loc13e6
+Push undefined
+Return
+loc13e6:Push register1, "expLevel", register1, "expLevel"
+GetMember
+Increment
+SetMember
+Push "fragType", 6, "_x", register9, "_y", register8, "_rotation", register10, "rate", 3, "ticks", 0.0, 6
+InitObject
+Push register1, "expLevel"
+GetMember
+Push "fragment", register1, "expLevel"
+GetMember
+Add2
+Push "Fragment", 4, register1, "effectsField"
+GetMember
+Push "attachMovie"
+CallMethod
+Pop
+Push register1, "expLevel"
+GetMember
+Push 100
+Greater
+Not
+If loc1473
+Push register1, "expLevel", 0.0
+SetMember
+}
+loc1473:SetMember
+Push register2, "AddExplosion"
+DefineFunction2 "", 5, 19, false, false, true, false, true, false, false, true, false, 16, "type", 18, "posX", 17, "posY", 7, "dx", 6, "dy" {
+Push "GameMP"
+GetVariable
+Push "fxQuality"
+GetMember
+Push 3
+Less2
+Not
+If loc14c0
+Push undefined
+Return
+loc14c0:Push 2
+StoreRegister 5
+Pop
+Push 0.0
+StoreRegister 15
+Pop
+Push 5
+StoreRegister 3
+Pop
+Push 8
+StoreRegister 8
+Pop
+Push undefined
+StoreRegister 9
+Pop
+Push register16
+StoreRegister 0
+Push 1
+StrictEquals
+If loc154d
+Push register0, 2
+StrictEquals
+If loc1568
+Push register0, 3
+StrictEquals
+If loc1587
+Push register0, 17
+StrictEquals
+If loc15d3
+Jump loc15f1
+loc154d:Push "bop.wav", 1, register1, "game"
+GetMember
+Push "PlaySound"
+CallMethod
+Pop
+Jump loc15f6
+loc1568:Push 5
+StoreRegister 5
+Pop
+Push 8
+StoreRegister 3
+Pop
+Jump loc15f6
+loc1587:Push 0.0, register7
+Subtract
+Push 2
+Multiply
+StoreRegister 7
+Pop
+Push 0.0, register6
+Subtract
+Push 2
+Multiply
+StoreRegister 6
+Pop
+Push 4
+StoreRegister 5
+Pop
+Jump loc15f6
+loc15d3:Push 1
+StoreRegister 5
+Pop
+Push 0.0
+StoreRegister 3
+Pop
+loc15f1:Push undefined
+Return
+loc15f6:Push 0.0, "Math"
+GetVariable
+Push "random"
+CallMethod
+Push register3
+Multiply
+Push register3, 2
+Divide
+Add2
+StoreRegister 3
+Pop
+Push 0.0
+StoreRegister 2
+Pop
+loc1633:Push register2, register5
+Less2
+Not
+If loc1708
+Push "fragType", register16, "ticks", register8, "_x", register18, "_y", register17, "xVel", 0.0, "Math"
+GetVariable
+Push "random"
+CallMethod
+Push register3
+Multiply
+Push register3, 2
+Divide
+Subtract
+Push "yVel", 0.0, "Math"
+GetVariable
+Push "random"
+CallMethod
+Push register3
+Multiply
+Push register3, 2
+Divide
+Subtract
+Push "dx", register7, "dy", register6, "rotate", register15, "deaccel", register9, 10
+InitObject
+StoreRegister 4
+Pop
+Push register4, register1, "expLevel"
+GetMember
+Push register2
+Add2
+Push "fragment", register1, "expLevel"
+GetMember
+Push register2
+Add2
+Add2
+Push "Fragment", 4, register1, "effectsField"
+GetMember
+Push "attachMovie"
+CallMethod
+Pop
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc1633
+loc1708:Push register1, "expLevel", register1, "expLevel"
+GetMember
+Push register5
+Add2
+SetMember
+Push register1, "expLevel"
+GetMember
+Push 100
+Greater
+Not
+If loc1743
+Push register1, "expLevel", 0.0
+SetMember
+}
+loc1743:SetMember
+Push register2, "ModifyTowerRangeBox"
+DefineFunction2 "", 2, 30, false, false, true, false, true, false, false, true, false, 12, "t", 29, "addtower" {
+Push register1, "cells"
+GetMember
+StoreRegister 19
+Pop
+Push register12, "range2"
+GetMember
+Push register1, "gridSize"
+GetMember
+Divide
+Push 1, "Math"
+GetVariable
+Push "ceil"
+CallMethod
+StoreRegister 27
+Pop
+Push register12, "topLeftCell"
+GetMember
+StoreRegister 23
+Pop
+Push register23, "left"
+GetMember
+Push register1, "gridSize"
+GetMember
+Add2
+StoreRegister 25
+Pop
+Push register23, "top"
+GetMember
+Push register1, "gridSize"
+GetMember
+Add2
+StoreRegister 24
+Pop
+Push register23, "row"
+GetMember
+Push register27
+Subtract
+StoreRegister 21
+Pop
+Push register23, "row"
+GetMember
+Push register27
+Add2
+Push 1
+Add2
+StoreRegister 18
+Pop
+Push register23, "col"
+GetMember
+Push register27
+Subtract
+StoreRegister 9
+Pop
+Push register23, "col"
+GetMember
+Push register27
+Add2
+Push 1
+Add2
+StoreRegister 8
+Pop
+Push false
+StoreRegister 13
+Pop
+Push 0.0
+InitArray
+StoreRegister 3
+Pop
+Push register12, "rangeType"
+GetMember
+StoreRegister 0
+Push 1
+StrictEquals
+If loc1879
+Push register0, 2
+StrictEquals
+If loc18f1
+Jump loc19d8
+loc1879:Push register21
+StoreRegister 4
+Pop
+loc1883:Push register4, register18
+Less2
+Not
+If loc18ec
+Push register19, register4
+GetMember
+StoreRegister 20
+Pop
+Push register9
+StoreRegister 2
+Pop
+loc18a8:Push register2, register8
+Less2
+Not
+If loc18dc
+Push register20, register2
+GetMember
+Push 1, register3, "push"
+CallMethod
+Pop
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc18a8
+loc18dc:Push register4
+Increment
+StoreRegister 4
+Pop
+Jump loc1883
+loc18ec:Jump loc19d8
+loc18f1:Push register23, "row"
+GetMember
+StoreRegister 20
+Pop
+Push register23, "col"
+GetMember
+StoreRegister 17
+Pop
+Push register21
+StoreRegister 4
+Pop
+loc1915:Push register4, register18
+Less2
+Not
+If loc19d8
+Push register19, register4
+GetMember
+StoreRegister 6
+Pop
+Push register4, register20
+Equals2
+PushDuplicate
+If loc194d
+Pop
+Push register4, register20, 1
+Add2
+Equals2
+loc194d:Not
+If loc1996
+Push register9
+StoreRegister 2
+Pop
+loc195d:Push register2, register8
+Less2
+Not
+If loc1991
+Push register6, register2
+GetMember
+Push 1, register3, "push"
+CallMethod
+Pop
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc195d
+loc1991:Jump loc19c8
+loc1996:Push register6, register17
+GetMember
+Push 1, register3, "push"
+CallMethod
+Pop
+Push register6, register17, 1
+Add2
+GetMember
+Push 1, register3, "push"
+CallMethod
+Pop
+loc19c8:Push register4
+Increment
+StoreRegister 4
+Pop
+Jump loc1915
+loc19d8:Push register12, "range2"
+GetMember
+StoreRegister 22
+Pop
+Push register12, "minRange2"
+GetMember
+StoreRegister 26
+Pop
+Push register3
+Enumerate2
+loc19f8:StoreRegister 0
+Push null
+Equals2
+If loc1b38
+Push register0
+StoreRegister 28
+Pop
+Push register3, register28
+GetMember
+StoreRegister 5
+Pop
+Push register5, "left"
+GetMember
+Push register1, "gridSize"
+GetMember
+Push 2
+Divide
+Add2
+StoreRegister 16
+Pop
+Push register5, "top"
+GetMember
+Push register1, "gridSize"
+GetMember
+Push 2
+Divide
+Add2
+StoreRegister 15
+Pop
+Push register25, register16
+Subtract
+StoreRegister 11
+Pop
+Push register24, register15
+Subtract
+StoreRegister 10
+Pop
+Push register11, register11
+Multiply
+Push register10, register10
+Multiply
+Add2
+Push 1, "Math"
+GetVariable
+Push "sqrt"
+CallMethod
+StoreRegister 7
+Pop
+Push register7, register22
+Greater
+Not
+Not
+If loc1b33
+Push register12, "mrange"
+GetMember
+Push 0.0
+Greater
+Not
+If loc1ad9
+Push register7, register26
+Less2
+Not
+StoreRegister 13
+Pop
+Jump loc1ae3
+loc1ad9:Push true
+StoreRegister 13
+Pop
+loc1ae3:Push register13
+Not
+If loc1b33
+Push register29
+Not
+If loc1b23
+Push register7, register22, register1, "gridSize"
+GetMember
+Subtract
+Greater
+StoreRegister 14
+Pop
+Push register14, register12, 2, register5, "AddRangeTower"
+CallMethod
+Pop
+Jump loc1b33
+loc1b23:Push register12, 1, register5, "RemoveRangeTower"
+CallMethod
+Pop
+loc1b33:Jump loc19f8
+}
+loc1b38:SetMember
+Push register2, "ModifyTowerRangeBox2"
+DefineFunction2 "", 2, 23, false, false, true, false, true, false, false, true, false, 2, "t", 18, "addtower" {
+Push register2, "range2"
+GetMember
+Push register1, "gridSize"
+GetMember
+Divide
+Push 1, "Math"
+GetVariable
+Push "ceil"
+CallMethod
+StoreRegister 22
+Pop
+Push register2, "topLeftCell"
+GetMember
+StoreRegister 20
+Pop
+Push register20, "left"
+GetMember
+Push register1, "gridSize"
+GetMember
+Add2
+StoreRegister 16
+Pop
+Push register20, "top"
+GetMember
+Push register1, "gridSize"
+GetMember
+Add2
+StoreRegister 15
+Pop
+Push register20, "row"
+GetMember
+Push register22
+Subtract
+StoreRegister 21
+Pop
+Push register20, "row"
+GetMember
+Push register22
+Add2
+Push 1
+Add2
+StoreRegister 19
+Pop
+Push register20, "col"
+GetMember
+Push register22
+Subtract
+StoreRegister 17
+Pop
+Push register20, "col"
+GetMember
+Push register22
+Add2
+Push 1
+Add2
+StoreRegister 14
+Pop
+Push false
+StoreRegister 8
+Pop
+Push register21
+StoreRegister 12
+Pop
+loc1c2a:Push register12, register19
+Less2
+Not
+If loc1db2
+Push register1, "cells"
+GetMember
+Push register12
+GetMember
+StoreRegister 13
+Pop
+Push register17
+StoreRegister 4
+Pop
+loc1c55:Push register4, register14
+Less2
+Not
+If loc1da2
+Push register13, register4
+GetMember
+StoreRegister 3
+Pop
+Push register3, "left"
+GetMember
+Push register1, "gridSize"
+GetMember
+Push 2
+Divide
+Add2
+StoreRegister 11
+Pop
+Push register3, "top"
+GetMember
+Push register1, "gridSize"
+GetMember
+Push 2
+Divide
+Add2
+StoreRegister 10
+Pop
+Push register16, register11
+Subtract
+StoreRegister 7
+Pop
+Push register15, register10
+Subtract
+StoreRegister 6
+Pop
+Push register7, register7
+Multiply
+Push register6, register6
+Multiply
+Add2
+Push 1, "Math"
+GetVariable
+Push "sqrt"
+CallMethod
+StoreRegister 5
+Pop
+Push register5, register2, "range2"
+GetMember
+Greater
+Not
+Not
+If loc1d92
+Push register2, "minRange2"
+GetMember
+Push 0.0
+Greater
+Not
+If loc1d32
+Push register5, register2, "minRange2"
+GetMember
+Less2
+Not
+StoreRegister 8
+Pop
+Jump loc1d3c
+loc1d32:Push true
+StoreRegister 8
+Pop
+loc1d3c:Push register8
+Not
+If loc1d92
+Push register18
+Not
+If loc1d82
+Push register5, register2, "range2"
+GetMember
+Push register1, "gridSize"
+GetMember
+Subtract
+Greater
+StoreRegister 9
+Pop
+Push register9, register2, 2, register3, "AddRangeTower"
+CallMethod
+Pop
+Jump loc1d92
+loc1d82:Push register2, 1, register3, "RemoveRangeTower"
+CallMethod
+Pop
+loc1d92:Push register4
+Increment
+StoreRegister 4
+Pop
+Jump loc1c55
+loc1da2:Push register12
+Increment
+StoreRegister 12
+Pop
+Jump loc1c2a
+}
+loc1db2:SetMember
+Push register2, "AssignTowerTargets"
+DefineFunction2 "", 0, 15, false, false, true, false, true, false, false, true, false {
+Push register1, "game"
+GetMember
+Push "fcount"
+GetMember
+StoreRegister 11
+Pop
+Push register1, "flyingCreeps", false
+SetMember
+Push register1, "creeps"
+GetMember
+Push "length"
+GetMember
+Push 1
+Subtract
+StoreRegister 13
+Pop
+Push register1, "creeps"
+GetMember
+Enumerate2
+loc1e07:StoreRegister 0
+Push null
+Equals2
+If loc2035
+Push register0
+StoreRegister 14
+Pop
+Push register1, "creeps"
+GetMember
+Push register13, register14
+Subtract
+GetMember
+StoreRegister 3
+Pop
+Push register3, "_x"
+GetMember
+StoreRegister 10
+Pop
+Push register3, "_y"
+GetMember
+StoreRegister 9
+Pop
+Push register3, "entering"
+GetMember
+Not
+Not
+If loc2030
+Push register3, "flying"
+GetMember
+Not
+If loc1eb2
+Push "nc", register1, "cells"
+GetMember
+Push register9, register1, "startY"
+GetMember
+Subtract
+Push register1, "gridSize"
+GetMember
+Divide
+ToInteger
+GetMember
+Push register10, register1, "startX"
+GetMember
+Subtract
+Push register1, "gridSize"
+GetMember
+Divide
+ToInteger
+GetMember
+SetVariable
+Push register1, "flyingCreeps", true
+SetMember
+Jump loc1edc
+loc1eb2:Push "nc", register3, "cCell"
+GetMember
+DefineLocal
+Push "nc"
+GetVariable
+Push "targetFrame"
+GetMember
+Push register11
+Equals2
+Not
+If loc1edc
+Push "nc", undefined
+SetVariable
+loc1edc:Push "nc"
+GetVariable
+Not
+If loc2030
+Push true
+StoreRegister 8
+Pop
+Push "nc"
+GetVariable
+Push "rangeTowers"
+GetMember
+Enumerate2
+loc1eff:StoreRegister 0
+Push null
+Equals2
+If loc2006
+Push register0
+StoreRegister 12
+Pop
+Push "nc"
+GetVariable
+Push "rangeTowers"
+GetMember
+Push register12
+GetMember
+StoreRegister 4
+Pop
+Push register4, "tower"
+GetMember
+StoreRegister 2
+Pop
+Push register2, "target"
+GetMember
+Not
+Not
+If loc2001
+Push register3, 1, register2, "TargetValid"
+CallMethod
+Not
+If loc1ff7
+Push register4, "partial"
+GetMember
+Not
+Not
+If loc1f7d
+Push register2, "target", register3
+SetMember
+Jump loc1ff2
+loc1f7d:Push register4, "tower"
+GetMember
+Push "_x"
+GetMember
+Push register10
+Subtract
+StoreRegister 6
+Pop
+Push register4, "tower"
+GetMember
+Push "_y"
+GetMember
+Push register9
+Subtract
+StoreRegister 5
+Pop
+Push register6, register6
+Multiply
+Push register5, register5
+Multiply
+Add2
+Push 1, "Math"
+GetVariable
+Push "sqrt"
+CallMethod
+StoreRegister 7
+Pop
+Push register7, register2, "range2"
+GetMember
+Greater
+Not
+Not
+If loc1ff2
+Push register2, "target", register3
+SetMember
+loc1ff2:Jump loc2001
+loc1ff7:Push false
+StoreRegister 8
+Pop
+loc2001:Jump loc1eff
+loc2006:Push register8
+PushDuplicate
+Not
+If loc201c
+Pop
+Push register3, "flying"
+GetMember
+Not
+loc201c:Not
+If loc2030
+Push "nc"
+GetVariable
+Push "targetFrame", register11
+SetMember
+loc2030:Jump loc1e07
+}
+loc2035:SetMember
+Push register2, "AddKill"
+DefineFunction2 "", 1, 7, false, false, true, false, true, false, false, true, false, 2, "cr" {
+Push 0.0, register1, "bountyField"
+GetMember
+Push "getNextHighestDepth"
+CallMethod
+StoreRegister 3
+Pop
+Push register2, "bounty"
+GetMember
+Push 0.0
+Greater
+Not
+If loc20d3
+Push "_x", register2, "_x"
+GetMember
+Push "_y", register2, "_y"
+GetMember
+Push 10
+Subtract
+Push "num", register2, "bounty"
+GetMember
+Push 3
+InitObject
+Push register3, "bounty", register3
+Add2
+Push "Bounty", 4, register1, "bountyField"
+GetMember
+Push "attachMovie"
+CallMethod
+Pop
+}
+loc20d3:SetMember
+Push register2, "LoseALife"
+DefineFunction2 "", 1, 7, false, false, true, false, true, false, false, true, false, 6, "cr" {
+Push 0.0, register1, "bountyField"
+GetMember
+Push "getNextHighestDepth"
+CallMethod
+StoreRegister 2
+Pop
+Push "_x", register6, "_x"
+GetMember
+Push "_y", register6, "_y"
+GetMember
+Push 10
+Subtract
+Push "num", -1, 3
+InitObject
+Push register2, "bounty", register2
+Add2
+Push "Bounty", 4, register1, "bountyField"
+GetMember
+Push "attachMovie"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "SetSkin"
+DefineFunction "", 1, "num"  {
+}
+SetMember
+Push register2, "AddSpawnCreeps"
+DefineFunction2 "", 2, 35, false, false, true, false, true, false, false, true, false, 2, "cr", 9, "newcreeps" {
+Push register2, "decoy"
+GetMember
+If loc21a3
+Push 2
+Jump loc21ab
+loc21a3:Push 4
+loc21ab:StoreRegister 34
+Pop
+Push 0.0, register1, "creepField"
+GetMember
+Push "getNextHighestDepth"
+CallMethod
+StoreRegister 8
+Pop
+Push register2, "LR"
+GetMember
+StoreRegister 19
+Pop
+Push register1, "cells"
+GetMember
+Push register2, "nextY"
+GetMember
+Push register1, "startY"
+GetMember
+Subtract
+Push register1, "gridSize"
+GetMember
+Divide
+ToInteger
+GetMember
+Push register2, "nextX"
+GetMember
+Push register1, "startX"
+GetMember
+Subtract
+Push register1, "gridSize"
+GetMember
+Divide
+ToInteger
+GetMember
+StoreRegister 7
+Pop
+Push register2, "decoy"
+GetMember
+Not
+If loc2248
+Push register2, "startHealth"
+GetMember
+Push 2
+Divide
+ToInteger
+StoreRegister 13
+Pop
+Jump loc225c
+loc2248:Push register2, "startHealth"
+GetMember
+Push register34
+Divide
+ToInteger
+StoreRegister 13
+Pop
+loc225c:Push register13, 1
+Less2
+Not
+If loc227a
+Push 1
+StoreRegister 13
+Pop
+loc227a:Push 0.0
+InitArray
+StoreRegister 6
+Pop
+Push register7, "row"
+GetMember
+Push 2
+Subtract
+StoreRegister 5
+Pop
+loc22a2:Push register5, register7, "row"
+GetMember
+Push 3
+Add2
+Less2
+Not
+If loc23dd
+Push register7, "col"
+GetMember
+Push 2
+Subtract
+StoreRegister 3
+Pop
+loc22d2:Push register3, register7, "col"
+GetMember
+Push 3
+Add2
+Less2
+Not
+If loc23cd
+Push register5, 0.0
+Greater
+PushDuplicate
+Not
+If loc230e
+Pop
+Push register5, register1, "cellRows"
+GetMember
+Less2
+loc230e:PushDuplicate
+Not
+If loc2325
+Pop
+Push register3, 0.0
+Greater
+loc2325:PushDuplicate
+Not
+If loc2338
+Pop
+Push register3, register1, "cellCols"
+GetMember
+Less2
+loc2338:Not
+If loc23bd
+Push register1, "cells"
+GetMember
+Push register5
+GetMember
+Push register3
+GetMember
+StoreRegister 4
+Pop
+Push register19
+Not
+If loc2392
+Push register4, "moveCostLR"
+GetMember
+Push 0.0
+Greater
+Not
+If loc238d
+Push register4, 1, register6, "push"
+CallMethod
+Pop
+loc238d:Jump loc23bd
+loc2392:Push register4, "moveCostUD"
+GetMember
+Push 0.0
+Greater
+Not
+If loc23bd
+Push register4, 1, register6, "push"
+CallMethod
+Pop
+loc23bd:Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc22d2
+loc23cd:Push register5
+Increment
+StoreRegister 5
+Pop
+Jump loc22a2
+loc23dd:Push register6, "length"
+GetMember
+Push 0.0
+Equals2
+Not
+If loc240e
+Push register2, "cCell"
+GetMember
+Push 1, register6, "push"
+CallMethod
+Pop
+loc240e:Push "SPAWNLET"
+StoreRegister 15
+Pop
+Push register2, "speed"
+GetMember
+Push "Game"
+GetVariable
+Push "me"
+GetMember
+Push "gameInfo"
+GetMember
+Push "gridRatio"
+GetMember
+Divide
+StoreRegister 14
+Pop
+Push register2, "decoy"
+GetMember
+Not
+If loc247a
+Push "DECOY"
+StoreRegister 15
+Pop
+Push register13, 2
+Multiply
+StoreRegister 13
+Pop
+Push register14, 0.1
+Multiply
+StoreRegister 14
+Pop
+loc247a:Push 0.0
+StoreRegister 12
+Pop
+loc248b:Push register12, register34
+Less2
+Not
+If loc2705
+Push register6, 0.0, "Math"
+GetVariable
+Push "random"
+CallMethod
+Push register6, "length"
+GetMember
+Multiply
+ToInteger
+GetMember
+StoreRegister 11
+Pop
+Push register2, "endCell"
+GetMember
+StoreRegister 10
+Pop
+Push register19
+Not
+If loc25d1
+Push "id", register1, "creepCount"
+GetMember
+Push "name", register15, "spawnMax", register2, "spawnMax"
+GetMember
+Push "spawnLevel", register2, "spawnLevel"
+GetMember
+Push 1
+Add2
+Push "startDelay", 0.0, "startCell", register11, "endCell", register10, "bounty", 0.0, "size", register2, "size"
+GetMember
+Push 10
+Subtract
+Push "health", register13, "speed", register14, "resist", 0.0, "immune", register2, "immune"
+GetMember
+Push "flying", register2, "flying"
+GetMember
+Push "color", register2, "color"
+GetMember
+Push "level", register2, "level"
+GetMember
+Push "LR", true, "swapPos", register2, "swapPos"
+GetMember
+Push 18
+InitObject
+Push register8, "creep", register8
+Add2
+Push "Creep", 4, register1, "creepField"
+GetMember
+Push "attachMovie"
+CallMethod
+Push 1, register9, "push"
+CallMethod
+Pop
+Push register8
+Increment
+StoreRegister 8
+Pop
+Push register1, "creepCount", register1, "creepCount"
+GetMember
+Increment
+SetMember
+Jump loc26c5
+loc25d1:Push "id", register1, "creepCount"
+GetMember
+Push "name", register15, "spawnMax", register2, "spawnMax"
+GetMember
+Push "spawnLevel", register2, "spawnLevel"
+GetMember
+Push 1
+Add2
+Push "startDelay", 0.0, "startCell", register11, "endCell", register10, "bounty", 0.0, "size", register2, "size"
+GetMember
+Push 10
+Subtract
+Push "health", register13, "speed", register14, "resist", 0.0, "immune", register2, "immune"
+GetMember
+Push "flying", register2, "flying"
+GetMember
+Push "color", register2, "color"
+GetMember
+Push "level", register2, "level"
+GetMember
+Push "LR", false, "swapPos", register2, "swapPos"
+GetMember
+Push 18
+InitObject
+Push register8, "creep", register8
+Add2
+Push "Creep", 4, register1, "creepField"
+GetMember
+Push "attachMovie"
+CallMethod
+Push 1, register9, "push"
+CallMethod
+Pop
+Push register8
+Increment
+StoreRegister 8
+Pop
+Push register1, "creepCount", register1, "creepCount"
+GetMember
+Increment
+SetMember
+loc26c5:Push register2, "_y"
+GetMember
+Push register2, "_x"
+GetMember
+Push 2, register9, register9, "length"
+GetMember
+Push 1
+Subtract
+GetMember
+Push "DoExplode"
+CallMethod
+Pop
+Push register12
+Increment
+StoreRegister 12
+Pop
+Jump loc248b
+}
+loc2705:SetMember
+Push register2, "AddWave"
+DefineFunction2 "", 1, 38, false, false, true, false, true, false, false, true, false, 2, "lvl" {
+Push 0.0, register1, "creepField"
+GetMember
+Push "getDepth"
+CallMethod
+Trace
+Push undefined
+StoreRegister 36
+Pop
+Push undefined
+StoreRegister 35
+Pop
+Push 0.0, register1, "creepField"
+GetMember
+Push "getNextHighestDepth"
+CallMethod
+StoreRegister 7
+Pop
+Push "ModeSettings"
+GetVariable
+Push "modeNum"
+GetMember
+StoreRegister 37
+Pop
+Push false
+StoreRegister 10
+Pop
+Push register2, "boss"
+GetMember
+Not
+PushDuplicate
+Not
+If loc2798
+Pop
+Push register2, "group"
+GetMember
+Not
+loc2798:PushDuplicate
+Not
+If loc27ad
+Pop
+Push "ModeSettings"
+GetVariable
+Push "survivor"
+GetMember
+Not
+loc27ad:PushDuplicate
+Not
+If loc27be
+Pop
+Push register37, "28"
+Equals2
+Not
+loc27be:StoreRegister 11
+Pop
+Push 0.0, "PRNG"
+NewObject
+StoreRegister 9
+Pop
+Push "ModeSettings"
+GetVariable
+Push "MPMode"
+GetMember
+Not
+If loc282a
+Push "GameMP"
+GetVariable
+Push "rndSeed"
+GetMember
+Push 0.0, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "level"
+GetMember
+Push "Get"
+CallMethod
+Add2
+Push 1, register9, "SetSeed"
+CallMethod
+Pop
+Jump loc2862
+loc282a:Push 0.0, "Game"
+GetVariable
+Push "me"
+GetMember
+Push "level"
+GetMember
+Push "Get"
+CallMethod
+Push 1111
+Multiply
+Push 1, register9, "SetSeed"
+CallMethod
+Pop
+loc2862:Push register2, "count"
+GetMember
+StoreRegister 36
+Pop
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 1
+Greater
+Not
+If loc289c
+Push register2, "count"
+GetMember
+StoreRegister 35
+Pop
+Jump loc28ad
+loc289c:Push 0.0
+StoreRegister 35
+Pop
+loc28ad:Push register7, register36
+Add2
+Push register35
+Add2
+StoreRegister 7
+Pop
+Push 0.0
+StoreRegister 8
+Pop
+loc28d1:Push register8, register2, "count"
+GetMember
+Less2
+Not
+If loc2e6f
+Push undefined
+StoreRegister 6
+Pop
+Push undefined
+StoreRegister 5
+Pop
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+PushDuplicate
+Not
+If loc2916
+Pop
+Push register10
+loc2916:StoreRegister 16
+Pop
+Push undefined
+StoreRegister 3
+Pop
+Push register11
+Not
+If loc29aa
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+Not
+If loc2983
+Push register1, "openingEndRow"
+GetMember
+Push 1
+Subtract
+Push register1, "openingStartRow"
+GetMember
+Push 1
+Add2
+Push 2, register9, "nextIntRange"
+CallMethod
+StoreRegister 3
+Pop
+Jump loc29a5
+loc2983:Push register1, "openingEndRow"
+GetMember
+Push register1, "openingStartRow"
+GetMember
+Push 2, register9, "nextIntRange"
+CallMethod
+StoreRegister 3
+Pop
+loc29a5:Jump loc29ca
+loc29aa:Push register1, "openingStartRow"
+GetMember
+Push register1, "openingEndRow"
+GetMember
+Add2
+Push 2
+Divide
+ToInteger
+StoreRegister 3
+Pop
+loc29ca:Push register16
+Not
+If loc2a1b
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+GetMember
+StoreRegister 6
+Pop
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+StoreRegister 5
+Pop
+Jump loc2a87
+loc2a1b:Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push 0.0
+GetMember
+StoreRegister 6
+Pop
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+If loc2a79
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+Jump loc2a81
+loc2a79:Push register1, "midCol"
+GetMember
+loc2a81:GetMember
+StoreRegister 5
+Pop
+loc2a87:Push "id", register1, "creepCount"
+GetMember
+Push "name", register2, "name"
+GetMember
+Push "startDelay", register8, register2, "delay"
+GetMember
+Multiply
+Push "startCell", register6, "endCell", register5, "bounty", register2, "bounty"
+GetMember
+Push "size", register2, "size"
+GetMember
+Push "health", register2, "health"
+GetMember
+Push "resist", register2, "resist"
+GetMember
+Push "speed", register2, "speed"
+GetMember
+Push "immune", register2, "immune"
+GetMember
+Push "flying", register2, "flying"
+GetMember
+Push "color", register2, "color"
+GetMember
+Push "level", register2, "level"
+GetMember
+Push "spawnMax", register2, "spawn"
+GetMember
+Push "spawnLevel", 1, "morph", register2, "morph"
+GetMember
+Push "group", register2, "group"
+GetMember
+Push "decoy", register2, "decoy"
+GetMember
+Push "hopper", register2, "hopper"
+GetMember
+Push "sprinter", register2, "sprinter"
+GetMember
+Push "LR", true, "swapPos", register16, 23
+InitObject
+Push register7, "creep", register7
+Add2
+Push "Creep", 4, register1, "creepField"
+GetMember
+Push "attachMovie"
+CallMethod
+Push 1, register1, "creeps"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register7
+Decrement
+StoreRegister 7
+Pop
+Push register1, "creepCount", register1, "creepCount"
+GetMember
+Increment
+SetMember
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 1
+Greater
+Not
+If loc2e54
+Push undefined
+StoreRegister 4
+Pop
+Push register11
+Not
+If loc2c54
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+Not
+If loc2c2d
+Push register1, "openingEndCol"
+GetMember
+Push 2
+Subtract
+Push register1, "openingStartCol"
+GetMember
+Push 2
+Add2
+Push 2, register9, "nextIntRange"
+CallMethod
+StoreRegister 4
+Pop
+Jump loc2c4f
+loc2c2d:Push register1, "openingEndCol"
+GetMember
+Push register1, "openingStartCol"
+GetMember
+Push 2, register9, "nextIntRange"
+CallMethod
+StoreRegister 4
+Pop
+loc2c4f:Jump loc2c74
+loc2c54:Push register1, "openingStartCol"
+GetMember
+Push register1, "openingEndCol"
+GetMember
+Add2
+Push 2
+Divide
+ToInteger
+StoreRegister 4
+Pop
+loc2c74:Push register16
+Not
+If loc2cc5
+Push register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register4
+GetMember
+StoreRegister 6
+Pop
+Push register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push register4
+GetMember
+StoreRegister 5
+Pop
+Jump loc2d31
+loc2cc5:Push register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register4
+GetMember
+StoreRegister 6
+Pop
+Push register1, "cells"
+GetMember
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+If loc2d1d
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+Jump loc2d25
+loc2d1d:Push register1, "midRow"
+GetMember
+loc2d25:GetMember
+Push register4
+GetMember
+StoreRegister 5
+Pop
+loc2d31:Push "id", register1, "creepCount"
+GetMember
+Push "name", register2, "name"
+GetMember
+Push "startDelay", register8, register2, "delay"
+GetMember
+Multiply
+Push "startCell", register6, "endCell", register5, "bounty", register2, "bounty"
+GetMember
+Push "size", register2, "size"
+GetMember
+Push "health", register2, "health"
+GetMember
+Push "resist", register2, "resist"
+GetMember
+Push "speed", register2, "speed"
+GetMember
+Push "immune", register2, "immune"
+GetMember
+Push "flying", register2, "flying"
+GetMember
+Push "color", register2, "color"
+GetMember
+Push "level", register2, "level"
+GetMember
+Push "spawnMax", register2, "spawn"
+GetMember
+Push "spawnLevel", 1, "morph", register2, "morph"
+GetMember
+Push "group", register2, "group"
+GetMember
+Push "decoy", register2, "decoy"
+GetMember
+Push "hopper", register2, "hopper"
+GetMember
+Push "sprinter", register2, "sprinter"
+GetMember
+Push "LR", false, "swapPos", register16, 23
+InitObject
+Push register7, "creep", register7
+Add2
+Push "Creep", 4, register1, "creepField"
+GetMember
+Push "attachMovie"
+CallMethod
+Push 1, register1, "creeps"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register7
+Decrement
+StoreRegister 7
+Pop
+Push register1, "creepCount", register1, "creepCount"
+GetMember
+Increment
+SetMember
+loc2e54:Push register10
+Not
+StoreRegister 10
+Pop
+Push register8
+Increment
+StoreRegister 8
+Pop
+Jump loc28d1
+loc2e6f:Push "ModeSettings"
+GetVariable
+Push "trickleChal"
+GetMember
+Not
+Not
+If loc2eaf
+Push register1, "game"
+GetMember
+Push "newLevelTick", register2, "boss"
+GetMember
+If loc2ea6
+Push 3
+Jump loc2eae
+loc2ea6:Push 2
+loc2eae:SetMember
+}
+loc2eaf:SetMember
+Push register2, "GetTowerPrototype"
+DefineFunction2 "", 2, 5, false, false, true, false, true, false, false, true, false, 4, "ttype", 3, "tlvl" {
+Push register3, register4, 2, register1, "gameData"
+GetMember
+Push "GetTowerPrototype"
+CallMethod
+StoreRegister 2
+Pop
+Push register2, 1, "DynamicText"
+GetVariable
+Push "SetTowerLanguage"
+CallMethod
+Pop
+Push register2
+Return
+}
+SetMember
+Push register2, "InitMap"
+DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push "InitMap:", "ModeSettings"
+GetVariable
+Push "mapSize"
+GetMember
+Add2
+Trace
+Push "ModeSettings"
+GetVariable
+Push "mapSize"
+GetMember
+StoreRegister 0
+Push 1
+StrictEquals
+If loc2f6b
+Push register0, 2
+StrictEquals
+If loc3006
+Push register0, 3
+StrictEquals
+If loc30a1
+Jump loc313c
+loc2f6b:Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 4
+Equals2
+Not
+If loc2fc6
+Push 17, 14, 13, 10, 20, 68, 50, 16, 20, 9, register1, "SetMap"
+CallMethod
+Pop
+Jump loc3001
+loc2fc6:Push 11, 8, 9, 6, 20, 68, 50, 16, 20, 9, register1, "SetMap"
+CallMethod
+Pop
+loc3001:Jump loc313c
+loc3006:Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 4
+Equals2
+Not
+If loc3061
+Push 25, 19, 21, 16, 14, 68, 50, 24, 28, 9, register1, "SetMap"
+CallMethod
+Pop
+Jump loc309c
+loc3061:Push 17, 10, 14, 9, 14, 68, 50, 24, 28, 9, register1, "SetMap"
+CallMethod
+Pop
+loc309c:Jump loc313c
+loc30a1:Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 4
+Equals2
+Not
+If loc30fc
+Push 33, 26, 29, 22, 12, 42, 16, 32, 36, 9, register1, "SetMap"
+CallMethod
+Pop
+Jump loc3137
+loc30fc:Push 21, 14, 19, 12, 12, 42, 16, 32, 36, 9, register1, "SetMap"
+CallMethod
+Pop
+loc3137:Jump loc313c
+loc313c:Push 0.0, register1, "CreateCellArray"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "SetMap"
+DefineFunction2 "", 9, 11, false, false, true, false, true, false, false, true, false, 3, "numAcross", 4, "numHigh", 8, "posX", 7, "posY", 2, "gridPixels", 6, "openingSR", 10, "openingER", 5, "openingSC", 9, "openingEC" {
+Push register1, "startX", register8
+SetMember
+Push register1, "endX", register1, "startX"
+GetMember
+Push register3, register2
+Multiply
+Add2
+SetMember
+Push register1, "startY", register7
+SetMember
+Push register1, "endY", register1, "startY"
+GetMember
+Push register4, register2
+Multiply
+Add2
+SetMember
+Push register1, "gridSize", register2
+SetMember
+Push register1, "gridRatio", register1, "gridSize"
+GetMember
+Push 14
+Divide
+SetMember
+Push register1, "cellCols", register3
+SetMember
+Push register1, "cellRows", register4
+SetMember
+Push register1, "openingStartRow", register6
+SetMember
+Push register1, "openingStartCol", register5
+SetMember
+Push register1, "openingEndRow", register10
+SetMember
+Push register1, "openingEndCol", register9
+SetMember
+Push register1, "midRow", register1, "cellRows"
+GetMember
+Push 2
+Divide
+ToInteger
+SetMember
+Push register1, "midCol", register1, "cellCols"
+GetMember
+Push 2
+Divide
+ToInteger
+SetMember
+Push 0.0, "GameGUI"
+GetVariable
+Push "grid"
+GetMember
+Push "Init"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "GetMapString"
+DefineFunction2 "", 0, 10, false, false, true, false, true, false, false, true, false {
+Push "v1:", register1, "cellRows"
+GetMember
+Add2
+Push ":"
+Add2
+Push register1, "cellCols"
+GetMember
+Add2
+Push ":"
+Add2
+StoreRegister 9
+Pop
+Push 0.0
+InitArray
+StoreRegister 4
+Pop
+Push 0.0
+StoreRegister 8
+Pop
+loc32fa:Push register8, register1, "cellRows"
+GetMember
+Less2
+Not
+If loc3440
+Push 0.0
+StoreRegister 5
+Pop
+loc331c:Push register5, register1, "cellCols"
+GetMember
+Less2
+Not
+If loc3430
+Push register1, "cells"
+GetMember
+Push register8
+GetMember
+Push register5
+GetMember
+StoreRegister 3
+Pop
+Push register3, "tower"
+GetMember
+Not
+If loc3420
+Push true
+StoreRegister 6
+Pop
+Push 0.0
+StoreRegister 2
+Pop
+loc336f:Push register2, register4, "length"
+GetMember
+Less2
+Not
+If loc33ff
+Push register4, register2
+GetMember
+Push "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Push register3, "tower"
+GetMember
+Push "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Equals2
+PushDuplicate
+Not
+If loc33da
+Pop
+Push register4, register2
+GetMember
+Push "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Push register3, "tower"
+GetMember
+Push "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Equals2
+loc33da:Not
+If loc33ef
+Push false
+StoreRegister 6
+Pop
+Jump loc33ff
+loc33ef:Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc336f
+loc33ff:Push register6
+Not
+If loc3420
+Push register3, "tower"
+GetMember
+Push 1, register4, "push"
+CallMethod
+Pop
+loc3420:Push register5
+Increment
+StoreRegister 5
+Pop
+Jump loc331c
+loc3430:Push register8
+Increment
+StoreRegister 8
+Pop
+Jump loc32fa
+loc3440:Push 0.0
+StoreRegister 8
+Pop
+loc3451:Push register8, register4, "length"
+GetMember
+Less2
+Not
+If loc34f2
+Push register4, register8
+GetMember
+StoreRegister 7
+Pop
+Push 0.0, register7, "__get__level"
+CallMethod
+Push register7, "towerType"
+GetMember
+Push 2, register7, "topLeftCell"
+GetMember
+Push "col"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 2, register7, "topLeftCell"
+GetMember
+Push "row"
+GetMember
+Push 2, "GameUtils"
+GetVariable
+Push "PadNumber"
+CallMethod
+Push 4, register9, "concat"
+CallMethod
+StoreRegister 9
+Pop
+Push register8
+Increment
+StoreRegister 8
+Pop
+Jump loc3451
+loc34f2:Push register9
+Return
+}
+SetMember
+Push register2, "TraceCells"
+DefineFunction2 "", 0, 6, false, false, true, false, true, false, false, true, false {
+Push 0.0
+StoreRegister 5
+Pop
+loc351c:Push register5, register1, "cellRows"
+GetMember
+Less2
+Not
+If loc35b2
+Push ""
+StoreRegister 3
+Pop
+Push 0.0
+StoreRegister 2
+Pop
+loc3548:Push register2, register1, "cellCols"
+GetMember
+Less2
+Not
+If loc359c
+Push register1, "cells"
+GetMember
+Push register5
+GetMember
+Push register2
+GetMember
+StoreRegister 4
+Pop
+Push register4, "cost"
+GetMember
+Push 1, register3, "concat"
+CallMethod
+StoreRegister 3
+Pop
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc3548
+loc359c:Push register3
+Trace
+Push register5
+Increment
+StoreRegister 5
+Pop
+Jump loc351c
+}
+loc35b2:SetMember
+Push register2, "CreateCellArray"
+DefineFunction2 "", 0, 8, false, false, true, false, true, false, false, true, false {
+Push register1, "cells", register1, "cellRows"
+GetMember
+Push 1
+Subtract
+Push 1, "Array"
+NewObject
+SetMember
+Push 0.0
+StoreRegister 3
+Pop
+loc35f7:Push register3, register1, "cellRows"
+GetMember
+Less2
+Not
+If loc376f
+Push register1, "cells"
+GetMember
+Push register3, register1, "cellCols"
+GetMember
+Push 1
+Subtract
+Push 1, "Array"
+NewObject
+SetMember
+Push 0.0
+StoreRegister 2
+Pop
+loc3640:Push register2, register1, "cellCols"
+GetMember
+Less2
+Not
+If loc375f
+Push 0.0, "Cell"
+NewObject
+StoreRegister 5
+Pop
+Push register5, "row", register3
+SetMember
+Push register5, "col", register2
+SetMember
+Push register5, "top", register3, register1, "gridSize"
+GetMember
+Multiply
+Push register1, "startY"
+GetMember
+Add2
+SetMember
+Push register5, "left", register2, register1, "gridSize"
+GetMember
+Multiply
+Push register1, "startX"
+GetMember
+Add2
+SetMember
+Push register3, 0.0
+Equals2
+PushDuplicate
+If loc36d5
+Pop
+Push register3, register1, "cellRows"
+GetMember
+Push 1
+Subtract
+Equals2
+loc36d5:PushDuplicate
+If loc36eb
+Pop
+Push register2, 0.0
+Equals2
+loc36eb:PushDuplicate
+If loc3706
+Pop
+Push register2, register1, "cellCols"
+GetMember
+Push 1
+Subtract
+Equals2
+loc3706:Not
+If loc372c
+Push register5, "cost", 0.0
+SetMember
+Push register5, "barrier", true
+SetMember
+Jump loc3739
+loc372c:Push register5, "cost", 1
+SetMember
+loc3739:Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register2, register5
+SetMember
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc3640
+loc375f:Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc35f7
+loc376f:Push register1, "endCellsLR", 0.0
+InitArray
+SetMember
+Push register1, "endCellsUD", 0.0
+InitArray
+SetMember
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 4
+Equals2
+Not
+Not
+If loc3bca
+Push register1, "startCellLR", register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push 0.0
+GetMember
+SetMember
+Push register1, "startCellUD", register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+SetMember
+Push register1, "openingStartRow"
+GetMember
+StoreRegister 3
+Pop
+loc3802:Push register3, register1, "openingEndRow"
+GetMember
+Greater
+Not
+Not
+If loc3910
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push 0.0
+GetMember
+Push "cost", 1
+SetMember
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push 0.0
+GetMember
+Push "isStart", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+GetMember
+Push "cost", 1
+SetMember
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+Not
+Not
+If loc3900
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+GetMember
+Push 1, register1, "endCellsLR"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+GetMember
+Push "isExit", true
+SetMember
+loc3900:Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3802
+loc3910:Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 1
+Greater
+Not
+If loc3a46
+Push register1, "openingStartCol"
+GetMember
+StoreRegister 3
+Pop
+loc3938:Push register3, register1, "openingEndCol"
+GetMember
+Greater
+Not
+Not
+If loc3a46
+Push register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register3
+GetMember
+Push "cost", 1
+SetMember
+Push register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register3
+GetMember
+Push "isStart", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register3
+GetMember
+Push "cost", 1
+SetMember
+Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+Not
+Not
+If loc3a36
+Push register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register3
+GetMember
+Push 1, register1, "endCellsUD"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register3
+GetMember
+Push "isExit", true
+SetMember
+loc3a36:Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3938
+loc3a46:Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 3
+Equals2
+Not
+If loc3bc5
+Push register1, "startCellLR", register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push 0.0
+GetMember
+SetMember
+Push register1, "startCellUD", register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+SetMember
+Push register1, "startCellLR2", register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+GetMember
+SetMember
+Push register1, "startCellUD2", register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+SetMember
+Push -2
+StoreRegister 3
+Pop
+loc3b04:Push register3, 2
+Less2
+Not
+If loc3bc5
+Push -2
+StoreRegister 2
+Pop
+loc3b22:Push register2, 2
+Less2
+Not
+If loc3bb5
+Push register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+Push register3
+Add2
+GetMember
+Push register1, "midCol"
+GetMember
+Push register2
+Add2
+GetMember
+StoreRegister 5
+Pop
+Push register5, "isExit", true
+SetMember
+Push register5, "cost", 0.0
+SetMember
+Push register5, 1, register1, "endCellsLR"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register5, 1, register1, "endCellsUD"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc3b22
+loc3bb5:Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3b04
+loc3bc5:Jump loc3e54
+loc3bca:Push "ModeSettings"
+GetVariable
+Push "mapConfig"
+GetMember
+Push 4
+Equals2
+Not
+If loc3e0e
+Push register1, "startCellLR", register1, "cells"
+GetMember
+Push register1, "openingStartRow"
+GetMember
+Push register1, "openingEndRow"
+GetMember
+Add2
+Push 2
+Divide
+ToInteger
+GetMember
+Push 0.0
+GetMember
+SetMember
+Push register1, "startCellUD", register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register1, "openingStartCol"
+GetMember
+Push register1, "openingEndCol"
+GetMember
+Add2
+Push 2
+Divide
+ToInteger
+GetMember
+SetMember
+Push register1, "openingStartRow"
+GetMember
+StoreRegister 3
+Pop
+loc3c5e:Push register3, register1, "openingEndRow"
+GetMember
+Greater
+Not
+Not
+If loc3d2d
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push 0.0
+GetMember
+Push "cost", 1
+SetMember
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push 0.0
+GetMember
+Push "isStart", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push register3
+Subtract
+Push 1
+Subtract
+GetMember
+Push register1, "cellCols"
+GetMember
+Push 1
+Subtract
+GetMember
+StoreRegister 7
+Pop
+Push register7, "cost", 1
+SetMember
+Push register7, "isExit", true
+SetMember
+Push register7, 1, register1, "endCellsUD"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3c5e
+loc3d2d:Push register1, "openingStartCol"
+GetMember
+StoreRegister 3
+Pop
+loc3d3a:Push register3, register1, "openingEndCol"
+GetMember
+Greater
+Not
+Not
+If loc3e09
+Push register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register3
+GetMember
+Push "cost", 1
+SetMember
+Push register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register3
+GetMember
+Push "isStart", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register1, "cellRows"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register1, "cellCols"
+GetMember
+Push register3
+Subtract
+Push 1
+Subtract
+GetMember
+StoreRegister 7
+Pop
+Push register7, "cost", 1
+SetMember
+Push register7, "isExit", true
+SetMember
+Push register7, 1, register1, "endCellsLR"
+GetMember
+Push "push"
+CallMethod
+Pop
+Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3d3a
+loc3e09:Jump loc3e54
+loc3e0e:Push register1, "startCellLR", register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push 0.0
+GetMember
+SetMember
+Push register1, "startCellUD", register1, "cells"
+GetMember
+Push 0.0
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+SetMember
+loc3e54:Push "ModeSettings"
+GetVariable
+Push "mapMode"
+GetMember
+StoreRegister 0
+Push 0.0
+StrictEquals
+If loc3e9b
+Push register0, 1
+StrictEquals
+If loc3ea0
+Push register0, 2
+StrictEquals
+If loc404b
+Jump loc416e
+loc3e9b:Jump loc416e
+loc3ea0:Push 2
+StoreRegister 3
+Pop
+loc3ead:Push register3, register1, "cellRows"
+GetMember
+Push 2
+Subtract
+Less2
+Not
+If loc3f73
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+Push "cost", 0.0
+SetMember
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "midCol"
+GetMember
+GetMember
+Push "barrier", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "midCol"
+GetMember
+Push 1
+Subtract
+GetMember
+Push "cost", 0.0
+SetMember
+Push register1, "cells"
+GetMember
+Push register3
+GetMember
+Push register1, "midCol"
+GetMember
+Push 1
+Subtract
+GetMember
+Push "barrier", true
+SetMember
+Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3ead
+loc3f73:Push 2
+StoreRegister 3
+Pop
+loc3f80:Push register3, register1, "cellCols"
+GetMember
+Push 2
+Subtract
+Less2
+Not
+If loc4046
+Push register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push register3
+GetMember
+Push "cost", 0.0
+SetMember
+Push register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+GetMember
+Push register3
+GetMember
+Push "barrier", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register3
+GetMember
+Push "cost", 0.0
+SetMember
+Push register1, "cells"
+GetMember
+Push register1, "midRow"
+GetMember
+Push 1
+Subtract
+GetMember
+Push register3
+GetMember
+Push "barrier", true
+SetMember
+Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc3f80
+loc4046:Jump loc416e
+loc404b:Push 3
+StoreRegister 6
+Pop
+loc4058:Push register6, register1, "cellCols"
+GetMember
+Push 5
+Subtract
+Less2
+Not
+If loc4169
+Push 4
+StoreRegister 4
+Pop
+loc407f:Push register4, register1, "cellCols"
+GetMember
+Less2
+Not
+If loc4154
+Push 0.0
+StoreRegister 3
+Pop
+loc40a1:Push register3, 3
+Less2
+Not
+If loc413f
+Push 0.0
+StoreRegister 2
+Pop
+loc40c3:Push register2, 4
+Less2
+Not
+If loc412f
+Push register1, "cells"
+GetMember
+Push register6, register3
+Add2
+GetMember
+Push register4, register2
+Add2
+GetMember
+Push "barrier", true
+SetMember
+Push register1, "cells"
+GetMember
+Push register6, register3
+Add2
+GetMember
+Push register4, register2
+Add2
+GetMember
+Push "cost", 0.0
+SetMember
+Push register2
+Increment
+StoreRegister 2
+Pop
+Jump loc40c3
+loc412f:Push register3
+Increment
+StoreRegister 3
+Pop
+Jump loc40a1
+loc413f:Push register4, 8
+Add2
+StoreRegister 4
+Pop
+Jump loc407f
+loc4154:Push register6, 5
+Add2
+StoreRegister 6
+Pop
+Jump loc4058
+loc4169:Jump loc416e
+loc416e:Push 0.0, "GameGUI"
+GetVariable
+Push "grid"
+GetMember
+Push "DrawGrid"
+CallMethod
+Pop
+}
+SetMember
+Push register2, "ClearTowers"
+DefineFunction2 "", 0, 3, false, true, true, false, true, false, false, true, false {
+Push register1, "towerField", 2, "towerField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "towers", 0.0
+InitArray
+SetMember
+Push register1, "towerString", ""
+SetMember
+}
+SetMember
+Push register2, "ClearCreeps"
+DefineFunction2 "", 0, 3, false, true, true, false, true, false, false, true, false {
+Push register1, "creepField", 3, "creepField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "creeps", 0.0
+InitArray
+SetMember
+Push register1, "creepCount", 0.0
+SetMember
+}
+SetMember
+Push register2, "ClearEffects"
+DefineFunction2 "", 0, 3, false, true, true, false, true, false, false, true, false {
+Push register1, "effectsField", 6, "effectsField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+}
+SetMember
+Push register2, "ClearShots"
+DefineFunction2 "", 0, 3, false, true, true, false, true, false, false, true, false {
+Push register1, "shotField", 4, "shotField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "groundField", 1, "groundField", 2, register2, "createEmptyMovieClip"
+CallMethod
+SetMember
+Push register1, "shots", 0.0
+InitArray
+SetMember
+}
+SetMember
+Push register2, "towerString", ""
+SetMember
+Push 1, null, "_global"
+GetVariable
+Push "GameInfo"
+GetMember
+Push "prototype"
+GetMember
+Push 3, "ASSetPropFlags"
+CallFunction
+loc42d2:Pop

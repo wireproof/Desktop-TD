@@ -238,3 +238,16 @@ function wireTowerEconomy()
    return text;
 }
 flash.external.ExternalInterface.addCallback("wireTowerEconomy", null, wireTowerEconomy);
+function wireMagnifierTap(x, y)
+{
+   var g = Game.me;
+   var grid = GameGUI.grid;
+   if(g == undefined || grid == undefined || g.gameState >= 2 || x < grid.startX || y < grid.startY) return false;
+   var col = int((x - grid.startX) / grid.gridSize);
+   var row = int((y - grid.startY) / grid.gridSize);
+   if(col < 0 || col >= grid.cols || row < 0 || row >= grid.rows) return false;
+   if(grid.dragTower != undefined) return wirePlaceTower(grid.dragTower.towerType,x,y);
+   g.SelectCell(row,col);
+   return true;
+}
+flash.external.ExternalInterface.addCallback("wireMagnifierTap", null, wireMagnifierTap);

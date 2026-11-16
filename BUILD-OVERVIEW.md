@@ -1,18 +1,18 @@
 # Desktop TD
 
-Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop Tower Defense Pro** Flash game. It runs the original game and its graphics and sounds using a bundled Ruffle player in a local `WKWebView`. The app is not a native rewrite or a complete graphics remaster. This project preserves the recovered game for testing.
+Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop Tower Defense Pro** Flash game. It runs the original game and its graphics and sounds using a bundled Ruffle player in a local `WKWebView`. The app is not a native rewrite or an upscaled graphics remaster. This project preserves the recovered game for testing; it does not claim ownership of the original game or a license to redistribute it.
 
 ## iPhone build
 
-The current build is **0.4.7 (16)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. Placed turrets are rendered at twice the original internal resolution while retaining their original vector designs. Tower bases, palette and desk artwork remain unchanged. The red icon is the default; the settings menu offers the supplied purple alternative.
+The current build is **0.4.9 (18)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. Placed tower turrets use three times the original internal rendering resolution, preserving the original designs; tower bases and the rest of the interface are unchanged. A controlled test exercised all nine tower types and an in-wave upgrade; sustained physical-device performance remains unverified. The red icon is the default; the settings menu offers the supplied purple alternative.
 
-The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.7 (16) is installed on the iPhone Duo and 11-inch iPad Pro; physical-device runtime and visual testing remain pending. The owner confirmed that trackpad dragging, its preview and right-click cancellation worked on 0.4.5. Touch and trackpad action handling for Sell and Upgrade was revised in 0.4.7. Version 0.4.6 was exercised in an iPad simulator with all nine tower types and an in-wave upgrade; runtime and visual testing on physical devices remain pending. Screens with camera cutouts or system overlays may cover edge content when filling the display.
+The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The new settings-button position, purple icon, long sessions, and all combinations of towers and modes still require physical-device verification. Physical-device runtime and visual testing of this build remain pending. Screens with camera cutouts or system overlays may cover edge content when filling the display.
 
 ## Playing
 
-- Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is supported for touch. Mouse and trackpad dragging shows a tower preview, and right-click cancels selection; these changes await physical-device testing.
-- Tap a placed tower to select it, then use **Upgrade** or **Sell**. An in-wave upgrade takes time and shows a progress bar. Upgrades require sufficient gold and must be enabled in Sandbox settings. The selected-tower summary labels current total value, the additional upgrade cost and the sale refund. In normal single-player play, selling before the first wave returns full value; selling after a wave starts returns 75%, rounded down. A level-5 Pellet worth $80 costs $120 to upgrade to a $200 Sniper. In controlled testing every tower reached its original final level; Boost ends at level 5 and the other eight at level 6.
-- Use the settings button for the local checkpoint commands and alternative app icon.
+- Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is supported for touch; mouse and trackpad dragging is supported; the owner confirmed mouse dragging and right-click cancellation on the iPad in build 0.4.5.
+- Tap a placed tower to select it, then use **Upgrade** or **Sell**. An in-wave upgrade takes time and shows a progress bar. Upgrades require sufficient gold and must be enabled in Sandbox settings. The selected-tower summary labels its current total value, the additional upgrade cost, and the sale refund. In normal single-player play, selling before the first wave returns full value; selling after a wave starts returns 75%, rounded down. The final Pellet-to-Sniper upgrade costs $120 when the level-5 value is $80.
+- Use the settings button for the local checkpoint commands and alternative app icon. Choose **Show map magnifier** to display a movable enlarged window. Drag its title to move it, drag inside the window to pan, use + and − to adjust magnification, and tap inside to place the selected tower or select an existing one. Close it with × or the settings menu. The large map contains 36 × 32 cells, compared with 28 × 24 on the normal map. Its board now uses the available desk space, with cells 20% wider and taller than in earlier builds; the number of cells is unchanged.
 - The original Sandbox **Preload towers** option can restore the last tower layout saved by the game when a run is started. Use matching Sandbox settings.
 
 ### Local checkpoints
@@ -31,8 +31,6 @@ Sandbox tower preload and the checkpoint are local replacements, not a recreatio
 
 The standalone desktop edition uses Electron with the same bundled Ruffle game. macOS packages are provided for Apple silicon and Intel; the Windows build is a portable x64 EXE. The window can be resized or switched to full screen (F11 on Windows, Control–Command–F on macOS). The **Game** menu provides Sandbox checkpoint save and load. Local desktop saves are separate from iPhone saves and from other computers.
 
-**Known macOS issue:** The Apple silicon build has been reported stuck on the Ruffle loading screen. A separate isolated startup test also stalled before the game loaded; its cause has not yet been established. Treat the macOS packages as experimental while this is investigated.
-
 The desktop programs serve bundled files on `127.0.0.1:58919` and keep game data in the operating system's per-user application-data directory. They do not require a Flash installation or the original game server. A second copy cannot start while the first holds the local port.
 
 The macOS build is ad-hoc signed and not notarized; the Windows build is unsigned. Operating-system security checks can prevent or warn about running these builds. Use your own code-signing credentials and distribution process for broadly trusted releases. Desktop features and local persistence require more real-world testing.
@@ -48,7 +46,7 @@ npm run dist:win    # Windows portable EXE; run on Windows
 
 ## iPhone IPA and signing
 
-The public release includes an **unsigned iPhone and iPad IPA** for re-signing with your own Apple development team and registered device. It cannot be installed as-is. Development provisioning profiles contain registered-device identifiers and are intentionally excluded from the public artifact. The owner's device-specific signed IPA remains in the private project and Synology backup. Apple development signatures can expire. Preserve the existing installation and its data when updating.
+The public release includes an **unsigned iPhone IPA** for re-signing with your own Apple development team and registered device. It cannot be installed as-is. Development provisioning profiles contain registered-device identifiers and are intentionally excluded from the public artifact. The owner's device-specific signed IPA remains in the private project and Synology backup. Apple development signatures can expire. Preserve the existing installation and its data when updating.
 
 ## Build from source
 
@@ -73,7 +71,7 @@ DTD_FFDEC_JAR=/path/to/ffdec.jar scripts/rebuild-swf.sh original.swf rebuilt.swf
 shasum -a 256 rebuilt.swf
 ```
 
-The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `bbf67a84dbdc8129340666c341a053aaff9035a340c7f3246635fae66e3a3ede`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
+The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `508fba27e7dd81ea6f26713fad06b83049cabc31d4d1a1d1c76f5e7de896f6f7`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
 
 ## Planned platforms and work
 
@@ -84,4 +82,4 @@ The script checks the original hash and applies the source and bytecode patches 
 - Investigate a native HTML5 reconstruction and graphics remaster only if desired; preserve original gameplay and sounds and compare against the recovered build.
 - Decide whether local replacements for additional account features, scores, or multiplayer are wanted and feasible.
 
-Ruffle is developed at <https://github.com/ruffle-rs/ruffle>; its bundled license is in `app/Resources/Web/RUFFLE-LICENSE.md`. Desktop Tower Defense Pro and its original assets belong to their respective rights holders. The original game and its assets are credited to their respective creators.
+Ruffle is developed at <https://github.com/ruffle-rs/ruffle>; its bundled license is in `app/Resources/Web/RUFFLE-LICENSE.md`. Desktop Tower Defense Pro and its original assets belong to their respective rights holders. Provenance and redistribution rights are unverified; no ownership or redistribution license is asserted.
