@@ -29,7 +29,7 @@ struct RootView: View {
                 Button("Load Sandbox checkpoint") { game.command("load") }
                 Button(game.magnifierVisible ? "Hide map magnifier" : "Show map magnifier") { game.setMagnifier(!game.magnifierVisible) }
                 Button("Red icon (default)") { setIcon(nil) }
-                Button("Purple icon") { setIcon("PurpleIcon") }
+                Button("Pellet tower icon") { setIcon("PurpleIcon") }
                 Button("Cancel", role: .cancel) {}
             }
             .onReceive(game.$message) { if let message = $0 { notice = message; game.message = nil } }
