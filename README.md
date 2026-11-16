@@ -4,13 +4,13 @@ Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop T
 
 ## iPhone build
 
-The current build is **0.4.2 (11)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. The red icon is the default; the settings menu offers the supplied purple alternative.
+The current build is **0.4.3 (12)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. The red icon is the default; the settings menu offers the supplied purple alternative.
 
-The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.2 (11) is installed on the iPhone Duo and 11-inch iPad Pro; iPad gameplay, sizing and audio have not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
+The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.3 (12) is installed on the iPhone Duo and 11-inch iPad Pro. It adds experimental mouse and trackpad dragging; runtime testing of this update and iPad gameplay, sizing and audio have not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
 
 ## Playing
 
-- Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is also supported.
+- Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is supported for touch. Mouse and trackpad dragging is experimental and awaits physical-device testing.
 - Tap a placed tower to select it, then use **Upgrade** or **Sell**. An in-wave upgrade takes time and shows a progress bar. Upgrades require sufficient gold and must be enabled in Sandbox settings.
 - Use the settings button for the local checkpoint commands and alternative app icon.
 - The original Sandbox **Preload towers** option can restore the last tower layout saved by the game when a run is started. Use matching Sandbox settings.
@@ -48,7 +48,7 @@ npm run dist:win    # Windows portable EXE; run on Windows
 
 ## iPhone IPA and signing
 
-The public release includes an **unsigned iPhone IPA** for re-signing with your own Apple development team and registered device. It cannot be installed as-is. Development provisioning profiles contain registered-device identifiers and are intentionally excluded from the public artifact. The owner's device-specific signed IPA remains in the private project and Synology backup. Apple development signatures can expire. Preserve the existing installation and its data when updating.
+The public release includes an **unsigned iPhone and iPad IPA** for re-signing with your own Apple development team and registered device. It cannot be installed as-is. Development provisioning profiles contain registered-device identifiers and are intentionally excluded from the public artifact. The owner's device-specific signed IPA remains in the private project and Synology backup. Apple development signatures can expire. Preserve the existing installation and its data when updating.
 
 ## Build from source
 

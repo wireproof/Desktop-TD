@@ -13,15 +13,15 @@ function enableDrag(player) {
     try { return typeof player.wireUpgradeAvailable === 'function' && player.wireUpgradeAvailable() === true; } catch (_) { return false; }
   }
   function swallow(e) { e.preventDefault(); e.stopImmediatePropagation(); }
-  function send(type, point, buttons, pointerId) {
+  function send(type, point, buttons, pointerId, pointerType) {
     const canvas = player.shadowRoot?.querySelector('canvas'); if (!canvas) return;
-    canvas.dispatchEvent(new PointerEvent(type,{bubbles:true,cancelable:true,composed:true,view:window,pointerId,pointerType:'touch',isPrimary:true,clientX:point.x,clientY:point.y,button:0,buttons}));
+    canvas.dispatchEvent(new PointerEvent(type,{bubbles:true,cancelable:true,composed:true,view:window,pointerId,pointerType,isPrimary:true,clientX:point.x,clientY:point.y,button:0,buttons}));
   }
   player.addEventListener('pointerdown', e => {
-    if(e.pointerType !== 'touch' || !e.isTrusted) return;
+    if(!e.isTrusted || !['touch','mouse','pen'].includes(e.pointerType) || (e.pointerType !== 'touch' && e.button !== 0)) return;
     const r=player.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-    if (upgradeHit(e,r) && upgradeReady()) { upgradeGesture={id:e.pointerId,r}; gesture=null; swallow(e); return; }
-    gesture=(x>.70 && y>.075 && y<.34) ? {x:e.clientX,y:e.clientY,id:e.pointerId,r,selected:false} : null;
+    if (e.pointerType === 'touch' && upgradeHit(e,r) && upgradeReady()) { upgradeGesture={id:e.pointerId,r}; gesture=null; swallow(e); return; }
+    gesture=(x>.70 && y>.075 && y<.34) ? {x:e.clientX,y:e.clientY,id:e.pointerId,type:e.pointerType,r,selected:false} : null;
   },true);
   player.addEventListener('pointermove', e => {
     if(upgradeGesture && e.pointerId===upgradeGesture.id && e.isTrusted) { swallow(e); return; }
@@ -30,7 +30,7 @@ function enableDrag(player) {
     // While the real finger is still down, release the palette button at its
     // original location so the Flash game selects the tower as on desktop.
     gesture.selected=true;
-    send('pointermove',gesture,1,gesture.id); send('pointerup',gesture,0,gesture.id);
+    send('pointermove',gesture,1,gesture.id,gesture.type); send('pointerup',gesture,0,gesture.id,gesture.type);
   },true);
   player.addEventListener('pointercancel', e => {if(upgradeGesture && e.pointerId===upgradeGesture.id) {upgradeGesture=null; swallow(e)} gesture=null},true);
   player.addEventListener('pointerup', e => {
@@ -45,7 +45,7 @@ function enableDrag(player) {
     if(!from.selected || x<.05 || x>.68 || y<.10 || y>.85) return;
     // The game's grid places on mouse down; the real pointer is still active
     // while this capture handler runs. The actual release follows naturally.
-    send('pointermove',point,0,from.id); send('pointerdown',point,1,from.id);
+    send('pointermove',point,0,from.id,from.type); send('pointerdown',point,1,from.id,from.type);
   },true);
 }
 window.addEventListener('load',async()=>{try{
