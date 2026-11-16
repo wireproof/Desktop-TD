@@ -1,10 +1,10 @@
 <!doctype html>
 <html><head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; frame-src 'none'">
-<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151b18;touch-action:none}body{display:flex;align-items:center;justify-content:center;padding:0}#game{flex:none;width:100%;height:100%;background:#111;touch-action:none}ruffle-player{width:100%;height:100%;display:block;touch-action:none}#tower-drag-preview{display:none;position:fixed;z-index:20;pointer-events:none;opacity:.8;transform:translate(-50%,-50%)}#message{position:absolute;bottom:5px;color:#ddd;font:12px system-ui;pointer-events:none}</style><script src="ruffle.js"></script></head>
-<body><img id="tower-drag-preview" alt="" draggable="false"><div id="game"></div><div id="message">Loading Desktop TD…</div><script>
+<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151b18;touch-action:none}body{display:flex;align-items:center;justify-content:center;padding:0}#game{flex:none;width:100%;height:100%;background:#111;touch-action:none}ruffle-player{width:100%;height:100%;display:block;touch-action:none}#tower-economy{display:none;position:fixed;z-index:19;pointer-events:none;color:#fff;background:rgba(0,0,0,.88);text-align:center;white-space:nowrap;overflow:hidden;border-radius:3px;font-family:system-ui,sans-serif;font-weight:600}#tower-drag-preview{display:none;position:fixed;z-index:20;pointer-events:none;opacity:.8;transform:translate(-50%,-50%)}#message{position:absolute;bottom:5px;color:#ddd;font:12px system-ui;pointer-events:none}</style><script src="ruffle.js"></script></head>
+<body><div id="tower-economy"></div><img id="tower-drag-preview" alt="" draggable="false"><div id="game"></div><div id="message">Loading Desktop TD…</div><script>
 function enableDrag(player) {
-  let gesture = null, upgradeGesture = null;
+  let gesture = null, actionGesture = null;
   const preview = document.querySelector('#tower-drag-preview');
   function hidePreview() { preview.style.display = 'none'; }
   function showPreview(e, state) {
@@ -20,12 +20,15 @@ function enableDrag(player) {
     if (row < 0 || row > 1 || col < 0 || col > 4 || (x - 508) % 35 >= 29 || (y - 81) % 35 >= 29) return 0;
     return types[row][col];
   }
-  function upgradeHit(e, r) {
+  function actionAt(e, r) {
     const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
-    return x>=.72 && x<=.87 && y>=.77 && y<=.85;
+    if (y < .77 || y > .86) return null;
+    if (x >= .72 && x < .86) return 'upgrade';
+    if (x >= .86 && x <= .985) return 'sell';
+    return null;
   }
-  function upgradeReady() {
-    try { return typeof player.wireUpgradeAvailable === 'function' && player.wireUpgradeAvailable() === true; } catch (_) { return false; }
+  function actionReady(kind) {
+    try { const fn = kind === 'upgrade' ? player.wireUpgradeAvailable : player.wireSellAvailable; return typeof fn === 'function' && fn.call(player) === true; } catch (_) { return false; }
   }
   function swallow(e) { e.preventDefault(); e.stopImmediatePropagation(); }
   function send(type, point, buttons, pointerId, pointerType) {
@@ -37,11 +40,12 @@ function enableDrag(player) {
     if (e.pointerType !== 'touch' && e.button === 2) { gesture=null; hidePreview(); if (typeof player.wireCancelTower === 'function') player.wireCancelTower(); swallow(e); return; }
     if (e.pointerType !== 'touch' && e.button !== 0) return;
     const r=player.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-    if (e.pointerType === 'touch' && upgradeHit(e,r) && upgradeReady()) { upgradeGesture={id:e.pointerId,r}; gesture=null; swallow(e); return; }
+    const action=actionAt(e,r);
+    if (action && actionReady(action)) { actionGesture={id:e.pointerId,r,action}; gesture=null; swallow(e); return; }
     gesture=(x>.70 && y>.075 && y<.34) ? {x:e.clientX,y:e.clientY,id:e.pointerId,type:e.pointerType,towerType:paletteType(x*700,y*500),r,selected:false} : null;
   },true);
   player.addEventListener('pointermove', e => {
-    if(upgradeGesture && e.pointerId===upgradeGesture.id && e.isTrusted) { swallow(e); return; }
+    if(actionGesture && e.pointerId===actionGesture.id && e.isTrusted) { swallow(e); return; }
     if(!gesture || !e.isTrusted || e.pointerId!==gesture.id) return;
     if (gesture.selected) { if (gesture.preview) showPreview(e,gesture); return; }
     if(Math.hypot(e.clientX-gesture.x,e.clientY-gesture.y)<15) return;
@@ -51,12 +55,14 @@ function enableDrag(player) {
     if (gesture.type === 'touch') { send('pointermove',gesture,1,gesture.id,gesture.type); send('pointerup',gesture,0,gesture.id,gesture.type); }
     else if (gesture.towerType && typeof player.wireBeginTower === 'function' && player.wireBeginTower(gesture.towerType)) { gesture.preview=true; showPreview(e,gesture); }
   },true);
-  player.addEventListener('pointercancel', e => {if(upgradeGesture && e.pointerId===upgradeGesture.id) {upgradeGesture=null; swallow(e)} if (gesture?.preview && typeof player.wireCancelTower === 'function') player.wireCancelTower(); gesture=null; hidePreview()},true);
+  player.addEventListener('pointercancel', e => {if(actionGesture && e.pointerId===actionGesture.id) {actionGesture=null; swallow(e)} if (gesture?.preview && typeof player.wireCancelTower === 'function') player.wireCancelTower(); gesture=null; hidePreview()},true);
   player.addEventListener('contextmenu', e => { if(e.isTrusted) swallow(e); },true);
   player.addEventListener('pointerup', e => {
-    if(upgradeGesture && e.isTrusted && e.pointerId===upgradeGesture.id) {
-      const pending=upgradeGesture; upgradeGesture=null; swallow(e);
-      if(upgradeHit(e,pending.r) && upgradeReady()) player.wireUpgradeSelected();
+    if(actionGesture && e.isTrusted && e.pointerId===actionGesture.id) {
+      const pending=actionGesture; actionGesture=null; swallow(e);
+      if(actionAt(e,pending.r) === pending.action && actionReady(pending.action)) {
+        if(pending.action === 'upgrade') player.wireUpgradeSelected(); else player.wireSellSelected();
+      }
       return;
     }
     if(!gesture || !e.isTrusted || e.pointerId!==gesture.id) return;
@@ -96,6 +102,16 @@ window.addEventListener('load',async()=>{try{
     if(screen!==lastScreen) {lastScreen=screen; window.webkit?.messageHandlers?.gameStatus?.postMessage({screen});}
   };
   updateScreen(); setInterval(updateScreen,250);
+  const economy = document.querySelector('#tower-economy');
+  const updateEconomy = () => {
+    let text=''; try { if(typeof p.wireTowerEconomy === 'function') text=String(p.wireTowerEconomy() || ''); } catch (_) {}
+    if(!text) { economy.style.display='none'; return; }
+    const r=p.getBoundingClientRect(); economy.textContent=text;
+    economy.style.left=(r.left+r.width*.705)+'px'; economy.style.top=(r.top+r.height*.853)+'px';
+    economy.style.width=(r.width*.28)+'px'; economy.style.fontSize=Math.max(8,Math.min(16,r.height*.018))+'px';
+    economy.style.display='block';
+  };
+  updateEconomy(); setInterval(updateEconomy,350);
   window.webkit?.messageHandlers?.gameStatus?.postMessage('SWF loaded');
   window.desktopBridge?.gameLoaded?.();document.querySelector('#message').remove();
 }catch(e){window.webkit?.messageHandlers?.gameStatus?.postMessage('Load failed: '+e);document.querySelector('#message').textContent='Game could not load: '+e}})

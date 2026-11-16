@@ -152,6 +152,25 @@ function wireUpgradeSelected()
 }
 flash.external.ExternalInterface.addCallback("wireUpgradeAvailable", null, wireUpgradeAvailable);
 flash.external.ExternalInterface.addCallback("wireUpgradeSelected", null, wireUpgradeSelected);
+function wireSellAvailable()
+{
+   var g = Game.me;
+   var p = GameGUI.infoPanel;
+   if(g == undefined || g.gameState > 1 || p == undefined || p.tower == undefined || !p.btnSell._visible) return false;
+   var t = p.tower;
+   if(t.topLeftCell == undefined || t.dragged || t.sellTicks > 0 || t.upTicks > 0) return false;
+   if(t.towerType == 8 && g.gameState > 0) return true;
+   return !t.noSell && g.gameInfo.CanSell();
+}
+function wireSellSelected()
+{
+   if(!wireSellAvailable()) return false;
+   GameGUI.infoPanel.ButtonClick("sell");
+   return true;
+}
+flash.external.ExternalInterface.addCallback("wireSellAvailable", null, wireSellAvailable);
+flash.external.ExternalInterface.addCallback("wireSellSelected", null, wireSellSelected);
+
 function wireIsGameScreen()
 {
    return _root._currentframe == 3 || _root._currentframe == 4 || _root._currentframe == 5;
@@ -196,3 +215,26 @@ function wireCancelTower()
 }
 flash.external.ExternalInterface.addCallback("wireBeginTower", null, wireBeginTower);
 flash.external.ExternalInterface.addCallback("wireCancelTower", null, wireCancelTower);
+function wireTowerEconomy()
+{
+   var g = Game.me;
+   var p = GameGUI.infoPanel;
+   if(g == undefined || p == undefined || !p._visible || p.tower == undefined || p.tower.topLeftCell == undefined) return "";
+   var t = p.tower;
+   var value = t.cost.Get();
+   if(t.upTicks > 0 && t.upObject != undefined) return "Upgrading: paid $" + (int(t.upObject.cost) - value);
+   if(t.sellTicks > 0) return "Sale in progress";
+   var text = "Value $" + value;
+   if(p.towerObj != undefined) text += " | Upgrade $" + (int(p.towerObj.cost) - value);
+   else text += " | MAX";
+   if(t.towerType == 8 && g.gameState > 0) text += " | FIRE";
+   else if(t.noSell || !g.gameInfo.CanSell()) text += " | No sell";
+   else
+   {
+      var full = g.gameState == 0 || ModeSettings.arcadeMode;
+      if(ModeSettings.MPMode || ModeSettings.PMPMode) full = !GameMP.started || ModeSettings.arcadeMode;
+      text += " | Sell $" + (full ? value : int(value * 0.75));
+   }
+   return text;
+}
+flash.external.ExternalInterface.addCallback("wireTowerEconomy", null, wireTowerEconomy);
