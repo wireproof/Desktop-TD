@@ -4,13 +4,13 @@ Desktop TD is an iPhone/iPad compatibility project for the recovered **Desktop T
 
 ## iPhone build
 
-The current build is **0.4.4 (13)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. The red icon is the default; the settings menu offers the supplied purple alternative.
+The current build is **0.4.5 (14)**, bundle identifier `com.wireproof.dtdpro`. It is landscape-only and fills the available display, with the slight stretching the owner selected. iOS is asked to hide system overlays. The small settings button shifts between menus and gameplay so it stays clear of the Sandbox heading and the score; in Sandbox setup it is centered in the space to the right of the heading. The red icon is the default; the settings menu offers the supplied purple alternative.
 
-The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.4 (13) is installed on the iPhone Duo and 11-inch iPad Pro. It uses the game’s own placement logic for experimental mouse and trackpad dragging; runtime testing of this update and iPad gameplay, sizing and audio have not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
+The owner confirmed that game audio works, a Sandbox tower upgrades during a wave, and the previous full-screen layout was the best fit so far on the iPhone Duo. The updated settings-button position has been visually confirmed on iPhone. Purple icon appearance, long sessions, and all combinations of towers and modes still require physical-device verification. Version 0.4.5 (14) is installed on the iPhone Duo and 11-inch iPad Pro. It uses the game’s own placement logic for experimental mouse and trackpad dragging; runtime testing of this update and iPad gameplay, sizing and audio have not been verified. Screens with camera cutouts or system overlays may cover edge content when filling the display.
 
 ## Playing
 
-- Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is supported for touch. Mouse and trackpad dragging is experimental and awaits physical-device testing.
+- Tap a tower in the palette, then tap the board to place it. Dragging from the palette to the board is supported for touch. Mouse and trackpad dragging shows a tower preview, and right-click cancels selection; these changes await physical-device testing.
 - Tap a placed tower to select it, then use **Upgrade** or **Sell**. An in-wave upgrade takes time and shows a progress bar. Upgrades require sufficient gold and must be enabled in Sandbox settings.
 - Use the settings button for the local checkpoint commands and alternative app icon.
 - The original Sandbox **Preload towers** option can restore the last tower layout saved by the game when a run is started. Use matching Sandbox settings.
@@ -73,7 +73,7 @@ DTD_FFDEC_JAR=/path/to/ffdec.jar scripts/rebuild-swf.sh original.swf rebuilt.swf
 shasum -a 256 rebuilt.swf
 ```
 
-The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `5df98870bf3b915388b03bdc53189952868e3fe3cac9bfacd9dba4b4bea1dca`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
+The script checks the original hash and applies the source and bytecode patches in order. With JPEXS 26.5.0 the resulting SWF matched the bundled file byte-for-byte, SHA-256 `e257e4c6cd17824cf661f59da10482fac6ba439d203bb5249ca4c82baeee8080`. Recompiling ActionScript can alter unrelated behavior; recheck exports and runtime behavior when changing patches.
 
 ## Planned platforms and work
 

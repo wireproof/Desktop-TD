@@ -178,3 +178,21 @@ function wirePlaceTower(type, x, y)
    return g.gameInfo.towers.length > oldCount;
 }
 flash.external.ExternalInterface.addCallback("wirePlaceTower", null, wirePlaceTower);
+function wireBeginTower(type)
+{
+   var g = Game.me;
+   if(g == undefined || GameGUI.grid == undefined || g.gameState >= 2 || type < 1 || type > 9 || !g.gameInfo.CanBuy(type)) return false;
+   var t = GameGUI.grid.dragTower;
+   if(t == undefined || t.towerType != type) t = g.gameInfo.AddTower(type,true);
+   return t != undefined;
+}
+function wireCancelTower()
+{
+   var g = Game.me;
+   var grid = GameGUI.grid;
+   if(g == undefined || grid == undefined || (grid.dragTower == undefined && grid.tower == undefined)) return false;
+   g.CancelSelect();
+   return true;
+}
+flash.external.ExternalInterface.addCallback("wireBeginTower", null, wireBeginTower);
+flash.external.ExternalInterface.addCallback("wireCancelTower", null, wireCancelTower);

@@ -73,7 +73,7 @@ final class LocalServer {
             let url = allowed ? base?.appendingPathComponent(name) : nil
             let payload = url.flatMap { try? Data(contentsOf: $0) }
             let type: String
-            switch url?.pathExtension { case "html": type = "text/html; charset=utf-8"; case "js": type = "text/javascript"; case "wasm": type = "application/wasm"; case "swf": type = "application/x-shockwave-flash"; default: type = "application/octet-stream" }
+            switch url?.pathExtension { case "html": type = "text/html; charset=utf-8"; case "js": type = "text/javascript"; case "wasm": type = "application/wasm"; case "png": type = "image/png"; case "swf": type = "application/x-shockwave-flash"; default: type = "application/octet-stream" }
             let body = payload ?? Data("Not found".utf8)
             let header = "HTTP/1.1 \(payload == nil ? "404 Not Found" : "200 OK")\r\nContent-Type: \(type)\r\nContent-Length: \(body.count)\r\nCache-Control: no-store\r\nConnection: close\r\n\r\n"
             var response = Data(header.utf8); response.append(body)

@@ -9,7 +9,7 @@ const smokeTest = process.argv.includes('--smoke-test');
 let smokeTimer;
 let mainWindow, server;
 const webRoot = app.isPackaged ? path.join(process.resourcesPath, 'Web') : path.join(__dirname, '..', 'app', 'Resources', 'Web');
-const contentTypes = {'.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.wasm':'application/wasm', '.swf':'application/x-shockwave-flash'};
+const contentTypes = {'.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.wasm':'application/wasm', '.png':'image/png', '.swf':'application/x-shockwave-flash'};
 function startServer() {
   return new Promise((resolve, reject) => {
     server = http.createServer((req, res) => {
