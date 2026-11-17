@@ -29,9 +29,27 @@ function LoadGame()
             _global.wireContinuePending = true;
             return;
          }
+         if(this.lastLevel && this.lives.Get() > 0 && !ModeSettings.MPMode && !ModeSettings.PMPMode && ModeSettings.maxFrames == 0)
+         {
+            this.gameState = 2;
+            _global.wireFreePlayPending = true;
+            return;
+         }
          this.wireOriginalShowFinish();
       };
    }
+   if(Game.prototype.wireOriginalNextLevel == undefined)
+   {
+      Game.prototype.wireOriginalNextLevel = Game.prototype.NextLevel;
+      Game.prototype.NextLevel = function(early)
+      {
+         if(_global.wireFreePlay && this.level.Get() >= this.gameInfo.gameData.levels.length - 5)
+            wireExtendFreePlay(this);
+         this.wireOriginalNextLevel(early);
+      };
+   }
+   _global.wireFreePlayPending = false;
+   _global.wireFreePlay = false;
    _global.wireContinuePending = false;
    _gn = "g" + random(1000);
    _root[_gn] = new Game();
@@ -99,7 +117,7 @@ function wireMaybeCheckpoint()
       fcount:g.fcount, tick:g.tick, targetTick:g.targetTick, newLevelTick:g.newLevelTick,
       creepKills:g.creepKills, goldSpent:g.goldSpent, sellNum:g.sellNum, towersBuilt:ModeSettings.towersBuilt,
       firstLeak:ModeSettings.firstLeak, barPos:GameGUI.levelBar.posX, barIncrement:GameGUI.levelBar.increment,
-      elapsed:g.GetTime()-g.startTime};
+      elapsed:g.GetTime()-g.startTime, freePlay:_global.wireFreePlay, freeBaseEnd:_global.wireFreeBaseEnd, freeBaseStart:_global.wireFreeBaseStart};
    g.cookie.data.wireCheckpoint = cp;
    var result = g.cookie.flush();
    _global.wireCheckpointPending = false;
@@ -147,6 +165,9 @@ function wireLoadCheckpoint()
    GameGUI.NextLevel(cp.levels.length - 1,cp.wave,cp.timeToLevel,false);
    GameGUI.levelBar.posX = cp.barPos; GameGUI.levelBar.increment = cp.barIncrement; GameGUI.levelBar._x = int(cp.barPos);
    _global.wireCheckpointPending = false;
+   _global.wireFreePlay = cp.freePlay == true;
+   _global.wireFreeBaseEnd = cp.freeBaseEnd;
+   _global.wireFreeBaseStart = cp.freeBaseStart;
    _global.wireCheckpointMessage = "Checkpoint restored after wave " + cp.wave + ".";
    return _global.wireCheckpointMessage;
 }
@@ -290,3 +311,63 @@ function wireContinueChoice(keepPlaying)
 }
 flash.external.ExternalInterface.addCallback("wireContinueAvailable", null, wireContinueAvailable);
 flash.external.ExternalInterface.addCallback("wireContinueChoice", null, wireContinueChoice);
+
+function wireFreePlayAvailable()
+{
+   return _global.wireFreePlayPending == true && Game.me != undefined && Game.me.gameState == 2;
+}
+function wireExtendFreePlay(g)
+{
+   var levels = g.gameInfo.gameData.levels;
+   var baseStart = _global.wireFreeBaseStart;
+   var baseEnd = _global.wireFreeBaseEnd;
+   var baseCount = baseEnd - baseStart + 1;
+   if(baseCount < 1) return false;
+   var i = 0;
+   while(i < 20)
+   {
+      var n = levels.length;
+      var original = levels[baseStart + ((n - baseEnd - 1) % baseCount)];
+      var wave = {};
+      for(var key in original) wave[key] = original[key];
+      wave.level = n;
+      wave.health = Math.max(1, int(Math.min(2000000000, original.health * Math.pow(1.08,n - original.level))));
+      wave.bounty = Math.max(1, int(original.bounty + (n - baseEnd) / 5));
+      levels.push(wave);
+      i++;
+   }
+   var oldPos = GameGUI.levelBar.posX;
+   var oldIncrement = GameGUI.levelBar.increment;
+   GameGUI.levelBar.CreateLevels(levels);
+   GameGUI.levelBar.posX = oldPos;
+   GameGUI.levelBar.increment = oldIncrement;
+   GameGUI.levelBar._x = int(oldPos);
+   return true;
+}
+function wireFreePlayChoice(keepPlaying)
+{
+   var g = Game.me;
+   if(!wireFreePlayAvailable()) return false;
+   _global.wireFreePlayPending = false;
+   if(!keepPlaying)
+   {
+      g.wireOriginalShowFinish();
+      return true;
+   }
+   var end = g.gameInfo.gameData.levels.length - 1;
+   _global.wireFreeBaseEnd = end;
+   _global.wireFreeBaseStart = Math.max(1,end - 19);
+   _global.wireFreePlay = true;
+   if(!wireExtendFreePlay(g)) { _global.wireFreePlay = false; g.wireOriginalShowFinish(); return false; }
+   g.lastLevel = false;
+   g.finished = false;
+   g.timeToLevel.Set(10);
+   g.currentLevelTime = 10;
+   GameGUI.btnNextLevel.SetEnabled(true);
+   GameGUI.btnNextLevel.txtText.text = "NEXT";
+   GameGUI.NextLevel(g.gameInfo.gameData.levels.length - 1,g.level.Get(),10,false);
+   g.gameState = 1;
+   return true;
+}
+flash.external.ExternalInterface.addCallback("wireFreePlayAvailable", null, wireFreePlayAvailable);
+flash.external.ExternalInterface.addCallback("wireFreePlayChoice", null, wireFreePlayChoice);
